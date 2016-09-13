@@ -2,11 +2,17 @@
 
 <% @items.each do |item| %>
   <p>
+    <%= image_tag item.image_path -%>
+  </p>
+
+  <p>
     <%= item.title %>
   </p>
+
   <p>
     <%= item.description %>
   </p>
+
   <p>
     <%= item.price %>
   </p>
