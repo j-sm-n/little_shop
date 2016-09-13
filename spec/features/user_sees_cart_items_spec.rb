@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User sees items in cart" do
   scenario "when cart has items" do
+    pending
     # Given items exist
     # As a visitor
     # When I visit any page with an item on it
@@ -17,7 +18,6 @@ RSpec.feature "User sees items in cart" do
                           image_path: "http://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg")
     visit items_path
 
-    save_and_open_page
     click_on "Add to Cart"
     click_on "Cart"
 
