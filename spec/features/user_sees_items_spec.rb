@@ -7,19 +7,17 @@ RSpec.feature 'User sees all the items' do
       # As a User
       # when I visit the items page
       # Then I expect to see the item
-      Item.create(title: 'Yak',
+      item = Item.create(title: 'Yak',
                   description: 'It is a yak',
                   price: 150,
                   image_path: 'https://www.example.com/foo.png')
 
       visit items_path
 
-      expect(page).to have_content 'Yak'
-      expect(page).to have_content 'It is a yak'
-      expect(page).to have_content 150
-      within ('img') do
-        expect(page).to have_content
-      end
+      expect(page).to have_content item.title
+      expect(page).to have_content item.description
+      expect(page).to have_content item.price
+      expect(page).to have_xpath("//img[@src='#{item.image_path}']")
     end
 
     scenario 'User visits items page with many items' do
