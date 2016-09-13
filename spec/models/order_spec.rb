@@ -6,8 +6,23 @@ RSpec.describe Order, type: :model do
 
     expect(order.user_id).to eq(1)
   end
-  
+
   it { should have_many :ordered_items }
   it { should have_many :items }
 
+  it "has a total" do
+    order = Order.create(user_id: 1)
+
+    order.items.create(title: "banana",
+                       description: "Wholesome Yellow Goodness",
+                       price: 19,
+                       image_path: "placeholder-path")
+
+    order.items.create(title: "tea",
+                       description: "its tea...",
+                       price: 80,
+                       image_path: "placeholder-path")
+
+    expect(order.total).to eq(99)
+  end
 end
