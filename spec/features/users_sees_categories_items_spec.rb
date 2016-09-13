@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpect.feature "Users can see category items" do
+RSpec.feature "Users can see category items" do
   scenario "page displays items in category" do
     #Given that category exist
     #And items are assigned
@@ -20,4 +20,3 @@ RSpect.feature "Users can see category items" do
     expect(page).to have_content("Banana")
   end
 end
-# user
