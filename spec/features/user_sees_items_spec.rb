@@ -12,6 +12,8 @@ RSpec.feature "User sees all the items" do
       visit items_path
 
       expect(page).to have_content "Yak"
+      expect(page).to have_content "It is a yak"
+      expect(page).to have_content "150"
     end
 
     scenario "User visits items page with many items" do
