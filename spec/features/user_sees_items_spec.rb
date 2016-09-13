@@ -7,7 +7,7 @@ RSpec.feature "User sees all the items" do
       # As a User
       # when I visit the items page
       # Then I expect to see the item
-      Item.create(name: "Yak", quantity: "200", price: "150")
+      Item.create(title: "Yak", description: "It is a yak", price: "150")
 
       visit items_path
 
@@ -19,9 +19,9 @@ RSpec.feature "User sees all the items" do
       # As a User
       # when I visit the items page
       # Then I expect to see all the items
-      Item.create(name: "Yak", quantity: "200", price: "150")
-      Item.create(name: "Silk Yarn", quantity: "50", price: "23")
-      Item.create(name: "Yo-Yo", quantity: "2000", price: "5")
+      Item.create(title: "Yak", description: "It is a yak", price: "150")
+      Item.create(title: "Silk Yarn", description: "For all your silk making needs", price: "23")
+      Item.create(title: "Yo-Yo", description: "It goes away, and comes back!", price: "5")
 
       visit items_path
 
