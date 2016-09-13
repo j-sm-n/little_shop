@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160913193416) do
+ActiveRecord::Schema.define(version: 20160913233122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 20160913193416) do
     t.text     "long_description"
     t.integer  "category_id"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_foreign_key "items", "categories"
