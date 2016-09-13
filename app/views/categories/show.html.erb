@@ -1,0 +1,8 @@
+<%= @category.name.capitalize %>
+
+<%  @category.items.each do |item| %>
+<%= item.title %>
+<%= item.description %>
+<%= item.price %>
+<%= image_tag item.image_path %>
+<% end %>
