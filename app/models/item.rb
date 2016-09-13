@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   validates :image_path, presence: true
 
   has_many :ordered_items
+  has_many :orders, through: :ordered_items
 end
