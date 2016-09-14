@@ -19,8 +19,8 @@ RSpec.feature 'Visiter can create account', type: :feature do
 
     fill_in 'Username', with: 'becky_123'
     fill_in 'Password', with: '12345'
-    fill_in 'Password Confirmation', with: '12345'
-    select('Female', from: 'Gender')
+    fill_in 'Password confirmation', with: '12345'
+    select('Female', from: 'gender')
     click_on "Register"
 
     expect(current_path).to eq('/dashboard')

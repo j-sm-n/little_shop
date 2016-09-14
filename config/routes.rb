@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   resources :items, only: [:index]
 
-  resources :users, only: [:new]
+  resources :users, only: [:new, :create]
 
   get '/login', to: 'sessions#new'
 
-  get '/dashboard', to: 'user#show'
+  get '/dashboard', to: 'users#show'
 
   get "/cart", to: "cart#show"
   post "/cart", to: "cart#create"

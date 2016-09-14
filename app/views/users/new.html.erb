@@ -1,0 +1,15 @@
+<%= form_for(@user) do |f| %>
+  <%= f.label :username %>
+  <%= f.text_field :username %><br>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %><br>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %><br>
+
+  <%= f.label :gender %>
+  <%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2], ['Transgender', 3], ['Other', 4], ['Prefer Not To Say', 5]], 1)) %><br>rspec
+
+  <%= f.submit "Register" %>
+<% end %>
