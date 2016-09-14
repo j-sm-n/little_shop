@@ -13,7 +13,10 @@ class CartController < ApplicationController
   end
 
   def update
+    @cart.contents[params[:cart][:item_id]] = params[:cart][:quantity].to_i
+    session[:cart] = @cart.contents
 
+    redirect_back(fallback_location: items_path)
   end
 
   def destroy

@@ -14,7 +14,6 @@ RSpec.feature "User adjusts cart items" do
     add_item_to_cart
 
     visit cart_path
-    save_and_open_page
 
     expect(page).to have_selector("input[value='1']")
     expect(page).to have_content("Subtotal: $0.19")
@@ -25,12 +24,11 @@ RSpec.feature "User adjusts cart items" do
     expect(current_path).to eq(cart_path)
 
     expect(page).to have_selector("input[value='3']")
-    expect(page).to have_content("subtotal: $0.57")
-    expect(page).to have_content("total: $0.57")
+    expect(page).to have_content("Subtotal: $0.57")
+    expect(page).to have_content("Total: $0.57")
   end
 
   scenario "cart page shows decreased quantities" do
-    pending
     # Given cart has item
     # As a visitor
     # When I visit "/cart"
@@ -49,16 +47,16 @@ RSpec.feature "User adjusts cart items" do
     visit cart_path
 
     expect(page).to have_selector("input[value='2']")
-    expect(page).to have_content("subtotal: $0.38")
+    expect(page).to have_content("Subtotal: $0.38")
 
-    fill_in :quantity, with: "1"
+    fill_in :cart_quantity, with: "1"
     click_on "Update"
 
     expect(current_path).to eq(cart_path)
 
     expect(page).to have_selector("input[value='1']")
-    expect(page).to have_content("subtotal: $0.19")
-    expect(page).to have_content("total: $0.19")
+    expect(page).to have_content("Subtotal: $0.19")
+    expect(page).to have_content("Total: $0.19")
   end
 
   def add_item_to_cart
