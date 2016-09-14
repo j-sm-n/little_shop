@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>LittleShop</title>
+    <title>Good Grocer</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,11 +9,17 @@
   </head>
 
   <body>
-      <% flash.each do |type, message| %>
-        <%= content_tag :div, message.html_safe, class: "flash_#{type}" %>
-      <% end %>
-      <div class="container" id=yield-container>
-        <%= yield %>
-      </div>
+    <% if current_user %>
+      <p>Logged in as <%= current_user.username %> - <%= link_to "Logout", logout_path %></p>
+    <% end %>
+
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message.html_safe, class: "flash_#{type}" %>
+    <% end %>
+
+    <div class="container" id=yield-container>
+      <%= yield %>
+    </div>
+    
   </body>
 </html>
