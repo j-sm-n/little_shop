@@ -184,7 +184,7 @@ Style/PreferredHashMethods:
 
 Style/Documentation:
   Description: 'Document classes and non-namespace modules.'
-  Enabled: true
+  Enabled: false
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
@@ -749,7 +749,7 @@ Style/SpaceBeforeComma:
 
 Style/SpaceBeforeComment:
   Description: >-
-                 Checks for missing space between code and a comment on the
+                 Checks for missing space between code and a on the
                  same line.
   Enabled: true
 
