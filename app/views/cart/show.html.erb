@@ -1,11 +1,11 @@
 <% @items.each do |item| %>
 
-<img src="<%= item.image_path %>" alt="Item" style="width:100px;height:80px;"> <br>
+<img src="<%= item.image_path %>" alt="Item" style="width:100px;height:80px;">
 
-  Title: <%= item.title %> <br>
-  Description: <%= item.description %> <br>
-  Price: <%= item.price %> <br>
+  <p>Title: <%= item.title %></p>
+  <p>Description: <%=item.description%></p>
+  <p>Price: <%= item.price %></p>
 
 <% end %>
 
-Total Price: <%=  @cart.total_price %>
+<p>Total Price: <%=  @cart.total_price %></p>

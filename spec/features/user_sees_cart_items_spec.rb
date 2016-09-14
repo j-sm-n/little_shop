@@ -82,7 +82,7 @@ RSpec.feature "User sees items in cart" do
       expect(page).to have_content item_1.description
       expect(page).to have_content item_1.price
       expect(page).to have_xpath("//img[@src='#{item_1.image_path}']")
-      
+      save_and_open_page
       expect(page).to have_content("39")
     end
 end
