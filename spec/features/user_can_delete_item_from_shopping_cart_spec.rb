@@ -30,6 +30,7 @@ RSpec.feature "User can delete item from cart" do
 
     click_on "Delete Item"
 
-    expect(page).to_not have_content item.title
+    expect(current_path).to eq(cart_path)
+
   end
 end
