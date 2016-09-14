@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get "/cart", to: "cart#show"
   post "/cart", to: "cart#create"
+  patch "/cart", to: "cart#update"
   delete "/cart", to: "cart#destroy"
 
   get "/:category_name", to: "categories#show", as: "category"

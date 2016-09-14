@@ -28,6 +28,4 @@ class CartController < ApplicationController
   def current_item
     @current_item = Item.find(params[:item_id])
   end
-
->>>>>>> development
 end

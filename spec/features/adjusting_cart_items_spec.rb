@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.feature do "User adjusts cart items" do
+RSpec.feature "User adjusts cart items" do
   scenario "cart page shows increased quantities" do
     # Given cart has item
     # As a visitor
@@ -14,11 +14,12 @@ RSpec.feature do "User adjusts cart items" do
     add_item_to_cart
 
     visit cart_path
+    save_and_open_page
 
     expect(page).to have_selector("input[value='1']")
-    expect(page).to have_content("subtotal: $0.19")
+    expect(page).to have_content("Subtotal: $0.19")
 
-    fill_in :quantity, with: "3"
+    fill_in :cart_quantity, with: "3"
     click_on "Update"
 
     expect(current_path).to eq(cart_path)
