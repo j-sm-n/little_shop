@@ -20,14 +20,14 @@ RSpec.feature "Visiter can create account", type: :feature do
     fill_in "Username", with: "becky_123"
     fill_in "Password", with: "12345"
     fill_in "Password confirmation", with: "12345"
-    select("Female", from: "gender")
+    select("Female", from: "user[gender]")
     click_on "Register"
-    save_and_open_page
+
 
     expect(current_path).to eq("/dashboard")
     expect(page).to have_content "Logged in as becky_123"
-    # expect(page).to have_content "Female" => gender is not saving to the db for some reason
+    expect(page).to have_content "Female"
     expect(page).to have_no_link("Login")
-    expect(page).to find_link("Logout")
+    expect(page).to have_link("Logout")
   end
 end

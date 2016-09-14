@@ -9,7 +9,7 @@
   <%= f.password_field :password_confirmation %><br>
 
   <%= f.label :gender %>
-  <%= select_tag(:gender, options_for_select([['Female', 1], ['Male', 2], ['Transgender', 3], ['Other', 4], ['Prefer Not To Say', 5]], 1)) %><br>rspec
+  <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>rspec
 
   <%= f.submit "Register" %>
 <% end %>
