@@ -8,14 +8,14 @@ class UsersController < ApplicationController
 
     if @user.save
       session[:user_id] = @user.id
-      redirect_to '/dashboard'
+      redirect_to "/dashboard"
     else
       # sad path goes here
     end
   end
 
   def show
-    
+
   end
 
 private
