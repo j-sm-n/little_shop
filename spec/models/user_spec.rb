@@ -17,15 +17,15 @@ RSpec.describe User, type: :model do
 
     it "does not save user with with already taken username" do
       User.create(username: "Joe",
-               password: "12345",
-               password_confirmation: "12345",
-               gender: "Other")
+                  password: "12345",
+                  password_confirmation: "12345",
+                  gender: "Other")
       user = User.new(username: "Joe",
                       password: "12345",
                       password_confirmation: "12345",
                       gender: "Other")
 
-      expect(user).to be_invalid 
+      expect(user).to be_invalid
     end
   end
 end

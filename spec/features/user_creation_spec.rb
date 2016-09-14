@@ -23,7 +23,6 @@ RSpec.feature "Visiter can create account", type: :feature do
     select("Female", from: "user[gender]")
     click_on "Register"
 
-
     expect(current_path).to eq("/dashboard")
     expect(page).to have_content "Logged in as becky_123"
     expect(page).to have_content "Female"
