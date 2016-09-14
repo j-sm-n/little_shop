@@ -10,9 +10,13 @@ class Cart
     contents[item_id.to_s] += 1
   end
 
+  def quantity(item_id)
+    contents[item_id.to_s]
+  end
+
   def total_price
     items = Item.where(id: contents.keys)
-    total = items.reduce(0) { |sub_total, item| sub_total += item.price }
+    items.reduce(0) { |sub_total, item| sub_total + item.price * quantity(item.id) }
   end
 
 end

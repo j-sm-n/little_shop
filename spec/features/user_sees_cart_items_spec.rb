@@ -25,7 +25,6 @@ RSpec.feature "User sees items in cart" do
 
     within ".cart" do
       click_on "cart"
-
     end
 
     expect(current_path).to eq("/cart")
