@@ -14,9 +14,9 @@ RSpec.feature "User can delete item from cart" do
     # And I should not see the item listed in cart
 
     item = Item.create(title: "Banana",
-    description: "Wholesome Yellow Goodness",
-    price: 19,
-    image_path: "http://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg")
+                       description: "Wholesome Yellow Goodness",
+                       price: 19,
+                       image_path: "http://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg")
 
     visit items_path
 
@@ -35,11 +35,11 @@ RSpec.feature "User can delete item from cart" do
     within("body") do
       expect(page).not_to have_content(item.title)
 
-    # expect(page).to have_content("Successfully removed #{item.title} from your cart.")
+      # expect(page).to have_content("Successfully removed #{item.title} from your cart.")
 
-    # expect(page).to have_link("#{item.title}", href: items_path(item))
+      # expect(page).to have_link("#{item.title}", href: items_path(item))
 
-  end
+    end
 
   end
 end
