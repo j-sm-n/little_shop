@@ -33,7 +33,7 @@ RSpec.feature "User can delete item from cart" do
     expect(current_path).to eq(cart_path)
 
     expect(page).to have_content("Successfully removed #{item.title} from your cart.")
-    expect(page).to have_link("#{item.title}", href: item_path(item))
+    expect(page).to have_link(item.title, href: item_path(item))
 
     within("#yield-container") do
       expect(page).not_to have_content(item.title)
