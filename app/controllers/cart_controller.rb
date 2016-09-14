@@ -9,4 +9,5 @@ class CartController < ApplicationController
   def show
     @items = Item.where(id: @cart.contents.keys)
   end
+
 end
