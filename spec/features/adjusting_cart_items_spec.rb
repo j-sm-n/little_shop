@@ -60,10 +60,10 @@ RSpec.feature "User adjusts cart items" do
   end
 
   def add_item_to_cart
-    item = Item.create(title: "Banana",
-                       description: "Wholesome Yellow Goodness",
-                       price: 19,
-                       image_path: "http://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg")
+    Item.create(title: "Banana",
+                description: "Wholesome Yellow Goodness",
+                price: 19,
+                image_path: "http://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg")
 
     visit items_path
 
