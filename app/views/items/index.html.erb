@@ -1,6 +1,9 @@
+
 <h1>Items</h1>
 
 <% @items.each do |item| %>
+  <div class="<%= item.title %>">
+
   <p>
     <%= image_tag item.image_path -%>
   </p>
@@ -16,4 +19,10 @@
   <p>
     <%= item.price %>
   </p>
+  <div class="cart">
+    <%= button_to "cart", cart_path, method: :get %>
+  </div>
+
+  <%= button_to "Add to Cart", cart_path(:item_id => item.id) %>
+</div>
 <% end %>
