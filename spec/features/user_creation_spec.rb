@@ -13,7 +13,7 @@ RSpec.feature 'Visiter can create account', type: :feature do
     # And I should not see a link for "Login"
     # And I should see a link for "Logout"
     visit login_path
-    click_on 'Create Account'
+    click_link 'Create Account'
 
     expect(current_path).to eq(new_user_path)
 
