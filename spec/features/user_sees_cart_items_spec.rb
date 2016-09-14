@@ -73,7 +73,6 @@ RSpec.feature "User sees items in cart" do
 
     within ".Apple .cart" do
       click_on "cart"
-
     end
 
     expect(current_path).to eq("/cart")
@@ -87,7 +86,7 @@ RSpec.feature "User sees items in cart" do
     expect(page).to have_content item_2.description
     expect(page).to have_content item_2.price
     expect(page).to have_xpath("//img[@src='#{item_2.image_path}']")
-    
+
     expect(page).to have_content("39")
   end
 end
