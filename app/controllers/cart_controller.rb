@@ -1,4 +1,7 @@
 class CartController < ApplicationController
+  include ActionView::Helpers::TextHelper
+
+
   def create
     item = Item.find(params[:item_id])
     @cart.add_item(item.id)
@@ -11,9 +14,10 @@ class CartController < ApplicationController
   end
 
   def destroy
+    current_item = Item.find(params[:item_id])
     @cart.contents.delete(params[:item_id])
+    flash.now[:sucess] = "Successfully removed #{current_item.title} from your cart."
     redirect_back(fallback_location: items_path)
-    # flash[:sucess] = "Successfully removed #{view_context.link_to(@item.title, item_path(@item))} from your cart."
   end
 
 end
