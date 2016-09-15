@@ -29,7 +29,9 @@ RSpec.feature "User Login", type: :feature do
 
     fill_in "Username", with: "jeffjeff"
     fill_in "Password", with: "12345"
-    click_on "Login"
+    # save_and_open_page
+    # first(:link, 'Login').click
+    click_on "login-button"
 
     expect(current_path).to eq(dashboard_path)
 
