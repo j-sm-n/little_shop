@@ -13,4 +13,10 @@ FactoryGirl.define do
     end
   end
 
+  factory :user do
+    username "Joe"
+    password "123foo456"
+    password_confirmation "123foo456"
+    gender "Other"
+  end
 end
