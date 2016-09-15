@@ -5,11 +5,11 @@
   <div class="<%= item.title %>">
 
   <p>
-    <%= image_tag item.image_path -%>
+    <%= item.title %>
   </p>
 
   <p>
-    <%= item.title %>
+    <%= image_tag item.image_path %>
   </p>
 
   <p>
@@ -20,7 +20,7 @@
     <%= item.price %>
   </p>
   <div class="cart">
-    <%= button_to "cart", cart_path, method: :get %>
+    <!-- <%= button_to "cart", cart_path, method: :get %> -->
   </div>
 
   <%= button_to "Add to Cart", cart_path(:item_id => item.id) %>
