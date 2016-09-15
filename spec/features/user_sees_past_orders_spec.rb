@@ -15,6 +15,8 @@ RSpec.feature "User sees past orders" do
     visit "/orders"
 
     expect(page).to have_content("Past Orders")
-    expect(page).to have_link("Order 1")
+    expect(page).to have_content("Order #1")
+    expect(page).to have_content("Banana")
+    expect(page).to have_content("Apple")
   end
 end

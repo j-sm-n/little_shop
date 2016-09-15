@@ -1,0 +1,12 @@
+<h1><%#= @user.username.capitalize %>'s Past Orders</h1>
+
+<% @orders.each_with_index do |order, index| %>
+
+    <h3><%= "Order ##{ index + 1 }" %></h3>
+    <ul>
+      <% order.items.each do |item| %>
+        <li><%= item.title %></li>
+      <% end %>
+    </ul>
+
+<% end %>
