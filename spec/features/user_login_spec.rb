@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "User Login", type: :feature do
-  scenario "when visitor goes to login page" do
+  scenario "when visitor enters correct credentials" do
     # As a visitor
     # When I visit "/"
     # Then I should see a link for "Login"
@@ -29,18 +29,28 @@ RSpec.feature "User Login", type: :feature do
 
     fill_in "Username", with: "jeffjeff"
     fill_in "Password", with: "12345"
-    # save_and_open_page
-    # first(:link, 'Login').click
     click_on "login-button"
 
     expect(current_path).to eq(dashboard_path)
 
-    within(:css, "navbar") do
-      expect(page).to have_content "Logged in as jeffjeff"
-    end
+    expect(page).to have_content "Logged in as jeffjeff"
 
     expect(page).to have_content "Male"
     expect(page).to have_no_link("Login")
     expect(page).to have_link("Logout")
+  end
+
+  scenario "visitor enters incorrect credentials" do
+    User.create(username: "jeffjeff",
+                password: "12345",
+                password_confirmation: "12345",
+                gender: "Male")
+    visit login_path
+    fill_in "Username", with: "jeffjeff"
+    fill_in "Password", with: "nope"
+    click_on "login-button"
+
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content("Username and/or Password is invalid. Try again.")
   end
 end
