@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :item do
     sequence(:title) { |n| "Dead Dove #{n}" }
     description "I don't know what I expected"
-    price 8
+    price 19
     image_path "i.ytimg.com/vi/nmLqs8qkP_Y/hqdefault.jpg"
 
     factory :item_with_long_description do

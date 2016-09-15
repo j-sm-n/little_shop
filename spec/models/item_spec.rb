@@ -9,7 +9,7 @@ RSpec.describe Item, type: :model do
       expect(item.title).to include('Dead Dove')
       expect(item.description).to eq("I don't know what I expected")
       expect(item.long_description).to include('Arrested Development')
-      expect(item.price).to eq(8)
+      expect(item.price).to eq(19)
       expect(item.image_path).to eq('i.ytimg.com/vi/nmLqs8qkP_Y/hqdefault.jpg')
     end
 
