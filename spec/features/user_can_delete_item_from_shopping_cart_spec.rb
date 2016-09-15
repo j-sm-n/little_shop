@@ -13,10 +13,7 @@ RSpec.feature "User can delete item from cart" do
     # And the title "SOME_ITEM" should be a link to that item in case the user wants to add it back
     # And I should not see the item listed in cart
 
-    item = Item.create(title: "Banana",
-                       description: "Wholesome Yellow Goodness",
-                       price: 19,
-                       image_path: "http://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg")
+    item = create(:item)
 
     visit items_path
 

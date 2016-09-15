@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "items#index"
 
   resources :items, only: [:index, :show]
 
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
 
   get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy'
 
   get "/cart", to: "cart#show"
