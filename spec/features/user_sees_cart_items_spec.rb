@@ -19,9 +19,7 @@ RSpec.feature "User sees items in cart" do
 
     expect(current_path).to eq(items_path)
 
-    within ".cart" do
-      click_on "cart"
-    end
+    click_on "cart_link"
 
     expect(current_path).to eq("/cart")
 
@@ -66,9 +64,7 @@ RSpec.feature "User sees items in cart" do
 
     expect(current_path).to eq(items_path)
 
-    within ".Apple .cart" do
-      click_on "cart"
-    end
+    click_on "cart_link"
 
     expect(current_path).to eq("/cart")
 

@@ -19,9 +19,7 @@ RSpec.feature "User can delete item from cart" do
 
     click_on "Add to Cart"
 
-    within ".cart" do
-      click_on "cart"
-    end
+    click_on "cart_link"
 
     expect(page).to have_content item.title
 
