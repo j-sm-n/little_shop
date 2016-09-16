@@ -28,19 +28,19 @@
           <ul class="nav navbar-nav">
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shop <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/grocery">Grocery</a></li>
-                <li><a href="/beverages">Beverages</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
+              <% if @categories %>
+                <ul class="dropdown-menu">
+                  <% @categories.each do |category| %>
+                    <li><a href="<%= category_path(category.name) %>"><%= category.name %></a></li>
+                  <% end %>
+                </ul>
+              <% end %>
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <% if current_user %>
-              <li>Logged in as <%= current_user.username %> | <%= link_to "Logout", logout_path %></li>
+              <li class="navbar-brand">Logged in as <%= current_user.username %></li> <!-- <= Need to figure out how to fix this -->
+              <li><%= link_to "Logout", logout_path %></li>
             <% else %>
               <li><%= link_to "Login", login_path %></li>
             <% end %>
