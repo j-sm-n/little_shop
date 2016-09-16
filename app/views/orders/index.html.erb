@@ -1,4 +1,4 @@
-<h1><%#= @user.username.capitalize %>'s Past Orders</h1>
+<h1><%= current_user.username.capitalize %>'s Past Orders</h1>
 
 <% @orders.each_with_index do |order, index| %>
 
