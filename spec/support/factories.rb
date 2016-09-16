@@ -20,5 +20,4 @@ FactoryGirl.define do
     gender "Other"
   end
 
-  
 end
