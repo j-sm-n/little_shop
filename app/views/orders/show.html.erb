@@ -1,0 +1,16 @@
+<h1>Order Details</h1>
+<h4><small>Status: <%= @order.status %></small></h4>
+<ul>
+  <% @order.items.each do |item| %>
+    <li>
+      <%= link_to item.title.capitalize, item %>
+    </li>
+    <p>
+      Quantity: <%= @order.quantity(item.id) %>
+    </p>
+    <p>
+      Subtotal: <%= cents_to_dollar @order.subtotal(item.id) %>
+    </p>
+  <% end %>
+  <li>Total: <%= cents_to_dollar @order.total %></li>
+</ul>

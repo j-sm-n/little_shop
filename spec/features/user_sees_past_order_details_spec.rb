@@ -18,9 +18,9 @@ RSpec.feature "User sees past order" do
     user = create(:user)
 
     order = user.orders.create(status: "paid")
-    order.items.create(title: "Banana", description: "Wholesome Yellow Goodness", price: 19, image_path: "placeholder")
-    order.items.create(title: "Banana", description: "Wholesome Yellow Goodness", price: 19, image_path: "placeholder")
+    item = order.items.create(title: "Banana", description: "Wholesome Yellow Goodness", price: 19, image_path: "placeholder")
     order.items.create(title: "Apple", description: "Wholesome Red Goodness", price: 21, image_path: "placeholder")
+    order.ordered_items.create(item_id: item.id)
 
     visit root_path
     click_link "Login"
