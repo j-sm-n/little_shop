@@ -17,7 +17,7 @@ RSpec.feature "User sees past order" do
     # Then I should see a timestamp when the action took place
     user = create(:user)
 
-    order = user.orders.create(status: "paid")
+    order = user.orders.create(status: "completed")
     item = order.items.create(title: "Banana", description: "Wholesome Yellow Goodness", price: 19, image_path: "placeholder")
     order.items.create(title: "Apple", description: "Wholesome Red Goodness", price: 21, image_path: "placeholder")
     order.ordered_items.create(item_id: item.id)
@@ -43,9 +43,10 @@ RSpec.feature "User sees past order" do
     expect(page).to have_link("Banana")
     expect(page).to have_link("Apple")
 
-    expect(page).to have_content("Status: paid")
+    expect(page).to have_content("Status: completed")
 
     expect(page).to have_content("Total: $0.59")
 
+    expect(page).to have_content(order.updated_at)
   end
 end
