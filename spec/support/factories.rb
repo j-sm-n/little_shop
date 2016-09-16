@@ -19,5 +19,4 @@ FactoryGirl.define do
     password_confirmation "123foo456"
     gender "Other"
   end
-
 end
