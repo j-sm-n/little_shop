@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   patch "/cart", to: "cart#update"
   delete "/cart", to: "cart#destroy"
 
+  get "/orders", to: "orders#index"
+
   get "/:category_name", to: "categories#show", as: "category"
 
 end
