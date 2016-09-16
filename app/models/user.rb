@@ -3,4 +3,6 @@ class User < ApplicationRecord
                        uniqueness: true
 
   has_secure_password
+
+  enum role: ["default", "admin"]
 end
