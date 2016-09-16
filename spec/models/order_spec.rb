@@ -11,8 +11,7 @@ RSpec.describe Order, type: :model do
   it { should have_many :items }
 
   it "has a total" do
-    order = Order.create(user_id: 1)
-
+    order = create(:order)
     order.items.create(title: "banana",
                        description: "Wholesome Yellow Goodness",
                        price: 19,

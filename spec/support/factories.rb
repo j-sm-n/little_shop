@@ -13,7 +13,7 @@ FactoryGirl.define do
     end
   end
 
-  sequence :username, ["a", "b", "c"].cycle do |n|
+  sequence :username, %w(a, b, c).cycle do |n|
     "Joe #{n}"
   end
 

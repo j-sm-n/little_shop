@@ -1,5 +1,6 @@
 class Order < ApplicationRecord
   has_many :ordered_items
+  belongs_to :user
   has_many :items, through: :ordered_items
 
   def quantity(item_id)
