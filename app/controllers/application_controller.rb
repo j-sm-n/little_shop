@@ -16,4 +16,12 @@ class ApplicationController < ActionController::Base
   def current_admin?
     current_user && current_user.admin?
   end
+
+  def path_based_on_role
+    if current_admin?
+      admin_dashboard_path
+    else
+      dashboard_path
+    end
+  end
 end
