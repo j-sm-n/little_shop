@@ -13,10 +13,24 @@ FactoryGirl.define do
     end
   end
 
+  sequence :username, ["a", "b", "c"].cycle do |n|
+    "Joe #{n}"
+  end
+
   factory :user do
-    username "Joe"
+    username
     password "123foo456"
     password_confirmation "123foo456"
     gender "Other"
+  end
+
+  factory :ordered_item do
+    item
+    order
+  end
+
+  factory :order do
+    status "paid"
+    user
   end
 end
