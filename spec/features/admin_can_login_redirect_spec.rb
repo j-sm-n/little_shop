@@ -18,7 +18,5 @@ RSpec.feature "Admin can login and be redirected to dashboard" do
     click_on "login-button"
 
     expect(current_path).to eq "/admin/dashboard"
-
-
   end
 end
