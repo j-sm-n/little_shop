@@ -1,5 +1,5 @@
 module Admin
-  class  UsersController < Admin::BaseController
+  class UsersController < Admin::BaseController
     def show
     end
   end
