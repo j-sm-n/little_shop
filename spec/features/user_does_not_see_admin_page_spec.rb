@@ -1,6 +1,5 @@
 require "rails_helper"
 
-
 RSpec.feature "User cannot see admin page" do
   scenario "if user is not registered, he/she cannot see the admin page" do
     # As an unregistered user
