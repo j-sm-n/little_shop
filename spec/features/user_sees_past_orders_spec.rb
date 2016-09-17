@@ -18,7 +18,6 @@ RSpec.feature "User sees past orders" do
     fill_in "Username", with: user.username
     fill_in "Password", with: user.password
     click_on "login-button"
-    # byebug
     visit "/orders"
 
     expect(page).to have_content("#{user.username}'s Past Orders")
