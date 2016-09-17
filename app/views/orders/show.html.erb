@@ -1,0 +1,17 @@
+<h1>Order Details</h1>
+<h4>Status: <%= @order.status %></h4>
+<h4><%= @order.updated_at if @order.status == "completed" or @order.status == "cancelled" %></h4>
+<ul>
+  <% @order.items.distinct.each do |item| %>
+    <li>
+      <%= link_to item.title.capitalize, item %>
+    </li>
+    <p>
+      Quantity: <%= @order.quantity(item.id) %>
+    </p>
+    <p>
+      Subtotal: <%= cents_to_dollar @order.subtotal(item.id) %>
+    </p>
+  <% end %>
+  <li>Total: <%= cents_to_dollar @order.total %></li>
+</ul>
