@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
     end
 
     @cart.clear
-    # session[:cart] = @cart
+    update_cart
 
     flash[:success] = "Order was successfully placed"
     redirect_to orders_path
