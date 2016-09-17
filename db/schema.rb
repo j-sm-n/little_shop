@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914030905) do
+ActiveRecord::Schema.define(version: 20160917171801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20160914030905) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_categories_on_slug", using: :btree
   end
 
   create_table "items", force: :cascade do |t|
@@ -30,7 +32,24 @@ ActiveRecord::Schema.define(version: 20160914030905) do
     t.datetime "updated_at",       null: false
     t.text     "long_description"
     t.integer  "category_id"
+    t.boolean  "retired"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+  end
+
+  create_table "ordered_items", force: :cascade do |t|
+    t.integer  "item_id"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_ordered_items_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_ordered_items_on_order_id", using: :btree
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "status"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,7 +59,10 @@ ActiveRecord::Schema.define(version: 20160914030905) do
     t.string   "user_image",      default: "https://s22.postimg.org/8r7f8ry81/user.png"
     t.datetime "created_at",                                                             null: false
     t.datetime "updated_at",                                                             null: false
+    t.integer  "role",            default: 0
   end
 
   add_foreign_key "items", "categories"
+  add_foreign_key "ordered_items", "items"
+  add_foreign_key "ordered_items", "orders"
 end
