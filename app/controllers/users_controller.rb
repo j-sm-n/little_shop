@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to "/dashboard"
     else
-      flash[:error] = @user.errors.full_messages.join(", ")
+      flash[:error] = @user.errors.full_messages.join(",")
       render :new
     end
   end
