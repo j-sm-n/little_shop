@@ -67,4 +67,12 @@ RSpec.configure do |config|
     visit items_path(item)
     click_on "Add to Cart"
   end
+
+  def login_user(user)
+    visit login_path
+
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    click_on "login-button"
+  end
 end
