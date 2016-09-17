@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def update_cart
-    session[:cart] = @cart
+    session[:cart] = @cart.contents
   end
 
   def current_user
