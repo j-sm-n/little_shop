@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get 'dashboard', to: 'users#show', as: 'dashboard'
+    get 'dashboard/edit', to: 'users#edit', as: 'edit_dashboard'
+    patch 'dashboard', to: 'users#update'
   end
 
   get '/login', to: 'sessions#new'
