@@ -24,7 +24,11 @@ RSpec.feature "" do
 
     click_on "Update Information"
 
-    expect(page).to have_content("Female")
     expect(current_path).to eq dashboard_path
+    expect(page).to have_content("Female")
+
+    visit '/dashboard'
+
+    expect(page).to have_content admin.username
   end
 end
