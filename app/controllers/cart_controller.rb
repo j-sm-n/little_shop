@@ -22,7 +22,7 @@ class CartController < ApplicationController
   def destroy
     @cart.contents.delete(params[:item_id])
     update_cart
-    
+
     flash[:success] = "Successfully removed #{view_context.link_to(@current_item.title, item_path(@current_item))} from your cart."
 
     redirect_back(fallback_location: items_path)
