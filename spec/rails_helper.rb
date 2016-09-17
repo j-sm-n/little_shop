@@ -67,7 +67,7 @@ RSpec.configure do |config|
     visit items_path(item)
     click_on "Add to Cart"
   end
-  
+
   def login_user(user)
     visit login_path
 
