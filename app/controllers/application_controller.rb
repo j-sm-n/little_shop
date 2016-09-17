@@ -3,10 +3,17 @@ class ApplicationController < ActionController::Base
 
   before_action :set_cart
 
-  helper_method :current_user, :current_admin?
+  helper_method :current_user,
+                :current_admin?,
+                :current_user_order?,
+                :update_cart
 
   def set_cart
     @cart = Cart.new(session[:cart])
+  end
+
+  def update_cart
+    session[:cart] = @cart.contents
   end
 
   def current_user
@@ -23,5 +30,10 @@ class ApplicationController < ActionController::Base
     else
       dashboard_path
     end
+  end
+
+  def current_user_order?
+    order = Order.find(params[:id])
+    order.user_id == current_user.id
   end
 end
