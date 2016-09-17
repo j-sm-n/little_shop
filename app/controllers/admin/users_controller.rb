@@ -8,9 +8,9 @@ module Admin
     end
 
     def update
-      user = current_user
-      if user.update(user_params)
-        redirect_to
+      @user = current_user
+      if @user.update(user_params)
+        redirect_to admin_user_dashboard_path(@user)
       end
     end
   end

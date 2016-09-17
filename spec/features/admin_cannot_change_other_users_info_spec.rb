@@ -23,7 +23,7 @@ RSpec.feature "" do
     select("Female", from: "user[gender]")
 
     click_on "Update Information"
-    
+
     expect(page).to have_content("female")
     expect(current_path).to eq admin_dashboard_path
   end
