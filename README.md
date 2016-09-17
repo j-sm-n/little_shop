@@ -4,8 +4,6 @@ GoodGrocer is part of our module 2 final project (also known as LittleShop). The
 main goal of this project was to touch all parts of a Ruby on Rails project such
 as CRUD, Associations/Relationships, Design, and have customer interaction.
 
-Things you may want to cover:
-
 * Ruby version: Rails 5.0.0.1
 
 * Database creation: Sep 12, 2016
