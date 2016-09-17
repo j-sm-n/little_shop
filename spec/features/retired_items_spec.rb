@@ -9,8 +9,9 @@ RSpec.feature "Retired item" do
     item = create(:item, retired: true)
 
     visit item_path(item)
+    save_and_open_page
 
-    expect(page).to_not have_content("Add to Cart")
+    expect(page).to_not have_button("Add to Cart")
     expect(page).to have_content("Item Retired")
   end
 end

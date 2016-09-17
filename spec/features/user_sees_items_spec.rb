@@ -16,7 +16,7 @@ RSpec.feature 'User sees all the items' do
 
       expect(page).to have_content item.title
       expect(page).to have_content item.description
-      expect(page).to have_content item.price
+      expect(page).to have_content "$#{item.price/100.0}"
       expect(page).to have_xpath("//img[@src='#{item.image_path}']")
     end
 
