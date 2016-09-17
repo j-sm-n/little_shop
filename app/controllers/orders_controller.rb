@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :require_current_user, only: [:show]
+  before_action :logged_in?, only: [:show, :create]
 
   def index
     @orders = current_user.orders
