@@ -1,4 +1,5 @@
-# README
+Inline-style:
+![alt text](http://thecreativewrinkle.com/wp-content/uploads/2015/11/Groceries21.jpg "GoodGrocer")
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
