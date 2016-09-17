@@ -18,3 +18,8 @@
 <% end %>
 
 <p>Total: <%= cents_to_dollar @cart.total_price %></p>
+<p>
+  <%= link_to "Login", login_path %>
+  or
+  <%= link_to "Create Account", new_user_path %>
+to Checkout</p>
