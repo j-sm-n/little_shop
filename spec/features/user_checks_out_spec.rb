@@ -17,16 +17,11 @@ RSpec.feature "User checks out" do
     item = create(:item)
     user = create(:user)
 
+    login_user(user)
+
     add_item_to_cart(item)
 
     visit cart_path
-
-    click_on "Login"
-
-    fill_in "Username", with: user.username
-    fill_in "Password", with: user.password
-
-    click_on "login-button"
 
     expect(current_path).to eq(cart_path)
 
