@@ -2,7 +2,7 @@
 
 <% @orders.each_with_index do |order, index| %>
 
-    <h3><%= "Order ##{ index + 1 }" %></h3>
+    <h3><%= link_to "Order ##{ index + 1 }", order %></h3>
     <ul>
       <% order.items.each do |item| %>
         <li><%= item.title %></li>

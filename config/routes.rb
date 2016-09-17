@@ -3,8 +3,14 @@ Rails.application.routes.draw do
 
   resources :items, only: [:index, :show]
 
+  resources :orders, only: [:index, :show]
+
   resources :users, only: [:new, :create]
   get '/dashboard', to: 'users#show'
+
+  namespace :admin do
+    get 'dashboard', to: 'users#show', as: 'dashboard'
+  end
 
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'
@@ -15,7 +21,6 @@ Rails.application.routes.draw do
   patch "/cart", to: "cart#update"
   delete "/cart", to: "cart#destroy"
 
-  get "/orders", to: "orders#index"
 
   get "/:category_name", to: "categories#show", as: "category"
 
