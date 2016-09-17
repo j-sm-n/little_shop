@@ -4,9 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :set_cart
 
   helper_method :current_user,
-  :current_admin?,
-  :current_user_order?,
-  :update_cart
+                :current_admin?,
+                :current_user_order?,
+                :update_cart
 
   def set_cart
     @cart = Cart.new(session[:cart])
