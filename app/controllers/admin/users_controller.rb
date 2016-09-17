@@ -1,6 +1,6 @@
 module Admin
   class UsersController < Admin::BaseController
-    def show
+    def index
     end
 
     def edit
@@ -9,12 +9,9 @@ module Admin
 
     def update
       user = current_user
+      if user.update(user_params)
+        redirect_to
+      end
     end
-
-    private
-
-    
-
-
   end
 end

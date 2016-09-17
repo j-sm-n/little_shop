@@ -9,9 +9,10 @@ Rails.application.routes.draw do
   get '/dashboard', to: 'users#show'
 
   namespace :admin do
-    get 'dashboard', to: 'users#show', as: 'dashboard'
+    get 'dashboard', to: 'users#index', as: 'dashboard'
     get 'dashboard/edit', to: 'users#edit', as: 'edit_dashboard'
     patch 'dashboard', to: 'users#update'
+    patch 'dashboard', to: 'users#show'
   end
 
   get '/login', to: 'sessions#new'
