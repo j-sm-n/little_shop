@@ -66,7 +66,6 @@ RSpec.configure do |config|
   def add_item_to_cart(item)
     visit items_path(item)
     click_on "Add to Cart"
-
   end
 
 end
