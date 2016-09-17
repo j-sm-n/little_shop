@@ -1,6 +1,6 @@
 ![alt text](http://thecreativewrinkle.com/wp-content/uploads/2015/11/Groceries21.jpg "GoodGrocer")
 
-GoodGrocer is part of our module 2 final project (as known as LittleShop). The
+GoodGrocer is part of our module 2 final project (also known as LittleShop). The
 main goal of this project was to touch all parts of a Ruby on Rails project such
 as CRUD, Associations/Relationships, Design, and have customer interaction.
 
