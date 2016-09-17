@@ -3,10 +3,17 @@ class ApplicationController < ActionController::Base
 
   before_action :set_cart
 
-  helper_method :current_user, :current_admin?
+  helper_method :current_user,
+  :current_admin?,
+  :current_user_order?,
+  :update_cart
 
   def set_cart
     @cart = Cart.new(session[:cart])
+  end
+
+  def update_cart
+    session[:cart] = @cart.contents
   end
 
   def current_user
@@ -27,5 +34,10 @@ class ApplicationController < ActionController::Base
 
   def user_params
     params.require(:user).permit(:username, :password, :password_confirmation, :gender)
+  end
+
+  def current_user_order?
+    order = Order.find(params[:id])
+    order.user_id == current_user.id
   end
 end
