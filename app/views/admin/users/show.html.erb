@@ -1,13 +1,8 @@
-<h1>Profile Information</h1>
+<h1>Admin Dashboard</h1>
 
 <div class="container">
-
-  <h1>Admin Dashboard</h1>
-
-  <%= link_to "Update Profile", admin_edit_dashboard_path%>
-  
   <p>Profile Image:</p> <%=image_tag @user.user_image %><br>
   <p><%= @user.gender %></p>
 </div>
 
-<%= link_to "Return to Dashboard", admin_dashboard_path(@user) %>
+<%= link_to "Update Profile", admin_edit_dashboard_path%>
