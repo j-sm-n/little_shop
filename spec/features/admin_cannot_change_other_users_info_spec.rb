@@ -24,8 +24,6 @@ RSpec.feature "" do
 
     click_on "Update Information"
 
-    save_and_open_page
-
     expect(page).to have_content("Female")
     expect(current_path).to eq dashboard_path
   end
