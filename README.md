@@ -1,25 +1,13 @@
-Inline-style:
 ![alt text](http://thecreativewrinkle.com/wp-content/uploads/2015/11/Groceries21.jpg "GoodGrocer")
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GoodGrocer is part of our module 2 final project (as known as LittleShop). The
+main goal of this project was to touch all parts of a Ruby on Rails project such
+as CRUD, Associations/Relationships, Design, and have customer interaction.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: Rails 5.0.0.1
 
-* System dependencies
+* Database creation: Sep 12, 2016
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Team Members: Jasmin Hudacsek, Jean Joeris, Raphael Barbo
