@@ -22,7 +22,6 @@ RSpec.feature "User adjusts cart items" do
     click_on "Update"
 
     expect(current_path).to eq(cart_path)
-
     expect(page).to have_selector("input[value='3']")
     expect(page).to have_content("Subtotal: $0.57")
     expect(page).to have_content("Total: $0.57")
@@ -53,17 +52,13 @@ RSpec.feature "User adjusts cart items" do
     click_on "Update"
 
     expect(current_path).to eq(cart_path)
-
     expect(page).to have_selector("input[value='1']")
     expect(page).to have_content("Subtotal: $0.19")
     expect(page).to have_content("Total: $0.19")
   end
 
   def add_item_to_cart
-    Item.create(title: "Banana",
-                description: "Wholesome Yellow Goodness",
-                price: 19,
-                image_path: "http://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg")
+    create(:item)
 
     visit items_path
 

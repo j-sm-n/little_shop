@@ -44,7 +44,6 @@ RSpec.feature "Users can see category items" do
     expect(page).to have_content("Grocery")
     expect(page).to have_content("Banana")
 
-    expect(page).to_not have_content("Beverages")
     expect(page).to_not have_content("Black Tea")
   end
 end
