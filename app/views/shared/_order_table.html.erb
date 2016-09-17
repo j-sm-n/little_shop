@@ -1,0 +1,17 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>Order #</td>
+      <td>Status</td>
+    </tr>
+
+  </thead>
+  <tbody>
+    <% orders.each_with_index do |order, index| %>
+    <tr>
+      <td> <%= link_to "##{index + 1}", order %></td>
+      <td> <%= order.status %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

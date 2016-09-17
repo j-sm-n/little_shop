@@ -30,7 +30,7 @@ FactoryGirl.define do
   end
 
   factory :order do
-    status "Paid"
+    status "paid"
     user
 
     factory :order_with_items do
