@@ -5,7 +5,7 @@ class Category < ApplicationRecord
 
   def initialize(*args)
     super
-    update_attribute(:slug, name.downcase.gsub(" ", "-"))
+    update_attribute(:slug, name.downcase.tr(" ", "-"))
   end
 
   def to_param
