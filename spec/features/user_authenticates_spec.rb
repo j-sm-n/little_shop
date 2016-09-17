@@ -16,12 +16,14 @@ RSpec.feature "User Authenticates", type: :feature do
     expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 
-  scenario " " do
+  scenario "user cannot view admin screens or use admin functionality" do
     # I cannot view the administrator screens or use admin functionality
-  end
+    user = create(:user)
+    login_user(user)
 
-  scenario " " do
-    # I cannot make myself an admin
+    visit admin_dashboard_path
+
+    expect(page).to have_content("The page you were looking for doesn't exist.")
   end
 
   def login_user(user)
