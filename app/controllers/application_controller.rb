@@ -24,4 +24,9 @@ class ApplicationController < ActionController::Base
       dashboard_path
     end
   end
+
+  def user_params
+    params.require(:user).permit(:username, :password, :password_confirmation, :gender)
+  end
+
 end
