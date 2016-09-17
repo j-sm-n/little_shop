@@ -9,6 +9,19 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
   end
 
+  def create
+    order = Order.create(user: current_user)
+    @cart.contents.each do |item_id, quantity|
+      quantity.times { order.ordered_items.create(item_id: item_id) }
+    end
+
+    @cart.clear
+    update_cart
+
+    flash[:success] = "Order was successfully placed"
+    redirect_to orders_path
+  end
+
   private
 
   def require_current_user
