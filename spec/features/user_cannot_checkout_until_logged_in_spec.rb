@@ -14,6 +14,8 @@ RSpec.feature "User cannot see checkout until logged in" do
     user = create(:user)
     item = create(:item)
 
+    add_item_to_cart(item)
+
     visit '/cart'
 
     save_and_open_page
