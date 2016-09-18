@@ -13,7 +13,7 @@ FactoryGirl.define do
     end
   end
 
-  sequence :username, %w(a b c).cycle do |n|
+  sequence :username, %w(a b c d).cycle do |n|
     "Joe #{n}"
   end
 
@@ -30,7 +30,10 @@ FactoryGirl.define do
   end
 
   factory :order do
-    status "paid"
     user
+
+    factory :order_with_items do
+      items { create_list(:item, 3) }
+    end
   end
 end
