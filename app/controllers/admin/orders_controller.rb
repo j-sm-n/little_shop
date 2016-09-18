@@ -1,7 +1,7 @@
 module Admin
   class OrdersController < Admin::BaseController
     def index
-      @orders = Order.where(status: params[:status])
+      @orders = Order.where(status: params[:status].capitalize)
     end
 
     def update

@@ -7,16 +7,16 @@ RSpec.feature "Admin changing order statuses", type: :feature do
   # Then I can see a listing of all orders
   # And I can see the total number of orders for each status ("Ordered", "Paid", "Cancelled", "completed")
   # And I can see a link for each individual order
-  # And I can filter orders to display by each status type ("Ordered", "Paid", "Cancelled", "completed")
+  # And I can filter orders to display by each status type ("Ordered", "Paid", "Cancelled", "Completed")
   # And I have links to transition between statuses
   # - I can click on "cancel" on individual orders which are "paid" or "ordered"
   # - I can click on "mark as paid" on orders that are "ordered"
   # - I can click on "mark as completed" on orders that are "paid"
   scenario "sees all orders with statuses on dashboard" do
-    order_paid = create(:order_with_items, status: "paid")
+    order_paid = create(:order_with_items, status: "Paid")
 
     order_completed = create(:order_with_items)
-    order_completed.update_attribute(:status, "completed")
+    order_completed.update_attribute(:status, "Completed")
 
     admin = create(:user, role: 1)
     login_user(admin)
@@ -25,16 +25,16 @@ RSpec.feature "Admin changing order statuses", type: :feature do
     expect(page).to have_link("#2")
     expect(page).to_not have_link("#3")
 
-    expect(page).to have_content("paid")
-    expect(page).to have_content("completed")
+    expect(page).to have_content("Paid")
+    expect(page).to have_content("Completed")
   end
 
   scenario "filter orders by status" do
-    order_paid_1 = create(:order_with_items, status: "paid")
-    order_paid_2 = create(:order_with_items, status: "paid")
+    order_paid_1 = create(:order_with_items, status: "Paid")
+    order_paid_2 = create(:order_with_items, status: "Paid")
 
     order_completed = create(:order_with_items)
-    order_completed.update_attribute(:status, "completed")
+    order_completed.update_attribute(:status, "Completed")
 
     admin = create(:user, role: 1)
     login_user(admin)
@@ -53,18 +53,17 @@ RSpec.feature "Admin changing order statuses", type: :feature do
 
   scenario "cancel 'paid' order" do
     order_paid = create(:order_with_items)
+    order_paid.update_attribute(:status, "Paid")
 
     admin = create(:user, role: 1)
     login_user(admin)
 
     click_link "Cancel"
-    expect(page).to have_content("cancelled")
+    expect(page).to have_content("Cancelled")
   end
 
   scenario "cancel 'ordered' order" do
-    pending
     order_ordered = create(:order_with_items)
-    order_ordered.update_attribute(:status, "Ordered")
     admin = create(:user, role: 1)
     login_user(admin)
 
@@ -74,13 +73,12 @@ RSpec.feature "Admin changing order statuses", type: :feature do
   end
 
   scenario "change 'ordered' order to 'paid'" do
-    pending
     order_ordered = create(:order_with_items)
     order_ordered.update_attribute(:status, "Ordered")
     admin = create(:user, role: 1)
     login_user(admin)
 
-    click_on "Paid"
+    click_on "Mark As Paid"
 
     expect(page).to have_content("Paid")
   end

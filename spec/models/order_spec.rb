@@ -37,6 +37,6 @@ RSpec.describe Order, type: :model do
                        price: 80,
                        image_path: "placeholder-path")
 
-    expect(order.status).to eq("ordered")
+    expect(order.status).to eq("Ordered")
   end
 end
