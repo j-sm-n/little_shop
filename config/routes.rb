@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'dashboard/edit', to: 'users#edit', as: 'edit_dashboard'
     patch 'dashboard', to: 'users#update'
     get 'dashboard/:status', to: 'orders#index', as: 'orders'
+    patch 'dashboard/orders', to: 'orders#update', as: 'edit_order_status'
   end
 
   get '/login', to: 'sessions#new'

@@ -58,8 +58,7 @@ RSpec.feature "Admin changing order statuses", type: :feature do
     login_user(admin)
 
     click_link "Cancel"
-
-    expect(page).to have_content("Cancelled")
+    expect(page).to have_content("cancelled")
   end
 
   scenario "cancel 'ordered' order" do
