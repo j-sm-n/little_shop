@@ -48,7 +48,7 @@ RSpec.feature "User sees past order" do
 
     expect(page).to have_content("Total: $0.59")
 
-    expect(page).to have_content(order.updated_at)
+    expect(page).to have_content(Time.now.strftime("%m/%d/%Y %I:%M%p"))
   end
 
   scenario "details on order page" do

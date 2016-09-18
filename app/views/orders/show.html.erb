@@ -1,6 +1,7 @@
 <h1>Order Details</h1>
+<h4>Order Date: <%= order_date @order.created_at %></h4>
 <h4>Status: <%= @order.status %></h4>
-<h4><%= @order.updated_at if @order.status == "completed" or @order.status == "cancelled" %></h4>
+<h4>Updated: <%= order_date @order.updated_at if @order.status == "Completed" or @order.status == "Cancelled" %></h4>
 <ul>
   <% @order.items.distinct.each do |item| %>
     <li>

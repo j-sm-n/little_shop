@@ -12,14 +12,13 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
   # And I can see the total for the order.
   # And I can see the status for the order.
   scenario "admin can see order date and time" do
-    pending
     create(:order_with_items)
 
     admin = create(:user, role: 1)
     login_user(admin)
     click_link("#1")
 
-    expect(page).to have_content("Sep 18, 2016 20:12:09 UTC")
+    expect(page).to have_content(Time.now.strftime("%m/%d/%Y %I:%M%p"))
   end
 
   scenario "admin can see purchaser's full name and address" do
@@ -30,6 +29,7 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
 
     login_user(admin)
     click_link("#1")
+    save_and_open_page
 
     expect(page).to have_content("Joe Delaware - 1378 Kemper Lane, Salt Lake City, Utah 84104")
   end
