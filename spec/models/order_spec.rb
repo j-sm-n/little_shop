@@ -24,4 +24,19 @@ RSpec.describe Order, type: :model do
 
     expect(order.total).to eq(99)
   end
+
+  it "has a status of 'Ordered'" do
+    order = create(:order)
+    order.items.create(title: "banana",
+                       description: "Wholesome Yellow Goodness",
+                       price: 19,
+                       image_path: "placeholder-path")
+
+    order.items.create(title: "tea",
+                       description: "its tea...",
+                       price: 80,
+                       image_path: "placeholder-path")
+
+    expect(order.status).to eq("ordered")
+  end
 end
