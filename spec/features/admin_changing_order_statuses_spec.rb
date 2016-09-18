@@ -13,7 +13,7 @@ RSpec.feature "Admin changing order statuses", type: :feature do
   # - I can click on "mark as paid" on orders that are "ordered"
   # - I can click on "mark as completed" on orders that are "paid"
   scenario "sees all orders with statuses on dashboard" do
-    order_paid = create(:order_with_items, status: "Paid")
+    create(:order_with_items, status: "Paid")
 
     order_completed = create(:order_with_items)
     order_completed.update_attribute(:status, "Completed")
@@ -63,7 +63,7 @@ RSpec.feature "Admin changing order statuses", type: :feature do
   end
 
   scenario "cancel 'ordered' order" do
-    order_ordered = create(:order_with_items)
+    create(:order_with_items)
     admin = create(:user, role: 1)
     login_user(admin)
 
@@ -84,7 +84,7 @@ RSpec.feature "Admin changing order statuses", type: :feature do
   end
 
   scenario "change 'paid' order to 'completed'" do
-    order_paid = create(:order_with_items, status: "Paid")
+    create(:order_with_items, status: "Paid")
 
     admin = create(:user, role: 1)
     login_user(admin)
