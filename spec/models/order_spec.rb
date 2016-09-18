@@ -28,9 +28,9 @@ RSpec.describe Order, type: :model do
   it "has item quantity" do
     order = create(:order)
     banana = Item.create(title: "banana",
-                       description: "Wholesome Yellow Goodness",
-                       price: 19,
-                       image_path: "placeholder-path")
+                         description: "Wholesome Yellow Goodness",
+                         price: 19,
+                         image_path: "placeholder-path")
 
     3.times do
       order.ordered_items.create(item: banana)
@@ -42,15 +42,15 @@ RSpec.describe Order, type: :model do
   it "has item subtotal" do
     order = create(:order)
     banana = Item.create(title: "banana",
-                       description: "Wholesome Yellow Goodness",
-                       price: 19,
-                       image_path: "placeholder-path")
+                         description: "Wholesome Yellow Goodness",
+                         price: 19,
+                         image_path: "placeholder-path")
 
     3.times do
       order.ordered_items.create(item: banana)
     end
 
-    expect(order.subtotal(banana.id)).to eq(3*banana.price)
+    expect(order.subtotal(banana.id)).to eq(3 * banana.price)
   end
 
   context "statuses" do

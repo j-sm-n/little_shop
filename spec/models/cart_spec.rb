@@ -60,7 +60,7 @@ RSpec.describe Cart, type: :model do
     end
     cart.add_item(item_2.id)
 
-    expect(cart.total_price).to eq(item.price * 2  + item_2.price)
+    expect(cart.total_price).to eq(item.price * 2 + item_2.price)
   end
 
   it "can clear contents" do
