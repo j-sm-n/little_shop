@@ -84,14 +84,13 @@ RSpec.feature "Admin changing order statuses", type: :feature do
   end
 
   scenario "change 'paid' order to 'completed'" do
-    pending
-    order_paid = create(:order_with_items)
+    order_paid = create(:order_with_items, status: "Paid")
 
     admin = create(:user, role: 1)
     login_user(admin)
 
-    click_on "completed"
+    click_on "Mark As Completed"
 
-    expect(page).to have_content("completed")
+    expect(page).to have_content("Completed")
   end
 end
