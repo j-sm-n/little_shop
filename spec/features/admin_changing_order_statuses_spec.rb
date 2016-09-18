@@ -52,13 +52,12 @@ RSpec.feature "Admin changing order statuses", type: :feature do
   end
 
   scenario "cancel 'paid' order" do
-    pending
     order_paid = create(:order_with_items)
 
     admin = create(:user, role: 1)
     login_user(admin)
 
-    click_on "Cancel"
+    click_link "Cancel"
 
     expect(page).to have_content("Cancelled")
   end

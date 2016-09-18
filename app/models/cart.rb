@@ -24,6 +24,6 @@ class Cart
   end
 
   def clear
-    contents = {}
+    @contents = {}
   end
 end
