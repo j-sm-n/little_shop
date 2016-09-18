@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Admin Views Users Orders", type: :feature do
+RSpec.feature "Admin Views Users Single Order", type: :feature do
   # As an authenticated Admin, when I visit an individual order page
   # Then I can see the order's date and time.
   # And I can see the purchaser's full name and address.
@@ -17,6 +17,7 @@ RSpec.feature "Admin Views Users Orders", type: :feature do
 
     admin = create(:user, role: 1)
     login_user(admin)
+    click_link("#1")
 
     expect(page).to have_content("Sep 18, 2016 20:12:09 UTC")
   end
@@ -28,6 +29,7 @@ RSpec.feature "Admin Views Users Orders", type: :feature do
     admin = create(:user, role: 1)
 
     login_user(admin)
+    click_link("#1")
 
     expect(page).to have_content("Joe Delaware - 1378 Kemper Lane, Salt Lake City, Utah 84104")
   end
@@ -39,9 +41,34 @@ RSpec.feature "Admin Views Users Orders", type: :feature do
     admin = create(:user, role: 1)
 
     login_user(admin)
+    click_link("#1")
 
-    # within('ul.students li:first-child') do
-    #     expect(page).to have_content student_2.name
-    # end
+    within('ul.order-item-details li:first-child') do
+        expect(page).to have_link("Dead Dove 4")
+        expect(page).to have_content("1")
+        expect(page).to have_content("$0.19")
+    end
+  end
+
+  scenario "admin can see total price of order" do
+    create(:order_with_items)
+
+    admin = create(:user, role: 1)
+
+    login_user(admin)
+    click_link("#1")
+
+    expect(page).to have_content("$0.57")
+  end
+
+  scenario "admin can see status of order" do
+    create(:order_with_items, status: "Paid")
+
+    admin = create(:user, role: 1)
+
+    login_user(admin)
+    click_link("#1")
+
+    expect(page).to have_content("Paid")
   end
 end
