@@ -6,7 +6,8 @@ class ApplicationController < ActionController::Base
   helper_method :current_user,
                 :current_admin?,
                 :current_user_order?,
-                :update_cart
+                :update_cart,
+                :logged_in?
 
   def set_cart
     @cart = Cart.new(session[:cart])
@@ -39,5 +40,9 @@ class ApplicationController < ActionController::Base
   def current_user_order?
     order = Order.find(params[:id])
     order.user_id == current_user.id
+  end
+
+  def logged_in?
+    redirect_to login_path unless current_user
   end
 end
