@@ -59,7 +59,7 @@ RSpec.feature "User sees past orders" do
     click_on "login-button"
 
     visit "/orders"
-    save_and_open_page
+    
     expect(page).to have_content("#{user.username}'s Past Orders")
     expect(page).to have_content("Order ##{order_1.id}")
     expect(page).to have_content("Banana")
