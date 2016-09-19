@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
     expect(user.gender).to eq('Other')
   end
 
-  it "does not save user with with already taken username" do
+  it "does not save user with already taken username" do
     user_1 = create(:user)
     user_2 = User.new(username: user_1.username,
                       password: "123456",
@@ -25,6 +25,90 @@ RSpec.describe User, type: :model do
                       gender: "Other")
 
     expect(user_2).to be_invalid
+  end
+
+  it "does not save user without first name" do
+    user = User.new(username: "foofoo",
+                    password: "123456",
+                    password_confirmation: "123456",
+                    gender: "Other",
+                    last_name: "Foofoo",
+                    street_address: "111 Street Name",
+                    city: "City",
+                    state: "State",
+                    zip_code: "12111")
+
+    expect(user).to be_invalid
+  end
+
+  it "does not save user without last name" do
+    user = User.new(username: "foofoo",
+                    password: "123456",
+                    password_confirmation: "123456",
+                    gender: "Other",
+                    first_name: "Bunny",
+                    street_address: "111 Street Name",
+                    city: "City",
+                    state: "State",
+                    zip_code: "12111")
+
+    expect(user).to be_invalid
+  end
+
+  it "does not save user without street address" do
+    user = User.new(username: "foofoo",
+                    password: "123456",
+                    password_confirmation: "123456",
+                    gender: "Other",
+                    first_name: "Bunny",
+                    last_name: "Foofoo",
+                    city: "City",
+                    state: "State",
+                    zip_code: "12111")
+
+    expect(user).to be_invalid
+  end
+
+  it "does not save user without city" do
+    user = User.new(username: "foofoo",
+                    password: "123456",
+                    password_confirmation: "123456",
+                    gender: "Other",
+                    first_name: "Bunny",
+                    last_name: "Foofoo",
+                    street_address: "111 Street Name",
+                    state: "State",
+                    zip_code: "12111")
+
+    expect(user).to be_invalid
+  end
+
+  it "does not save user without state" do
+    user = User.new(username: "foofoo",
+                    password: "123456",
+                    password_confirmation: "123456",
+                    gender: "Other",
+                    first_name: "Bunny",
+                    last_name: "Foofoo",
+                    street_address: "111 Street Name",
+                    city: "City",
+                    zip_code: "12111")
+
+    expect(user).to be_invalid
+  end
+
+  it "does not save user without state" do
+    user = User.new(username: "foofoo",
+                    password: "123456",
+                    password_confirmation: "123456",
+                    gender: "Other",
+                    first_name: "Bunny",
+                    last_name: "Foofoo",
+                    street_address: "111 Street Name",
+                    city: "City",
+                    state: "State")
+
+    expect(user).to be_invalid
   end
 
   context "user roles" do
