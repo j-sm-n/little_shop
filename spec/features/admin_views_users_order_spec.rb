@@ -41,7 +41,7 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
     login_user(admin)
     click_link("#1")
 
-    within('ul.order-item-details li:first-child') do
+    within('ul.order-item-details h3:first-child') do
       expect(page).to have_link(order_items.items.first.title)
     end
 
