@@ -8,5 +8,6 @@ RSpec.feature "User can see home page" do
     expect(page).to have_content("HOME PAGE")
     expect(page).to have_content("Login")
     expect(page).to have_content("Shop")
+    expect(page).to have_content("GoodGrocer")
   end
 end
