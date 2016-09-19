@@ -22,7 +22,7 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
   end
 
   scenario "admin can see purchaser's full name and address" do
-    create(:order_with_items)
+    order = create(:order_with_items)
 
     admin = create(:user, role: 1)
 
@@ -30,7 +30,7 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
     click_link("#1")
 
     expect(page).to have_content("Purchaser Name: Joe Delaware")
-    expect(page).to have_content("Address: 4 Kemper Lane, Salt Lake City, Utah - 84104")
+    expect(page).to have_content("Address: #{order.user.street_address}")
   end
 
   scenario "admin can see each order item details" do
