@@ -44,10 +44,12 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
     within('ul.order-item-details li:first-child') do
       expect(page).to have_link(order_items.items.first.title)
     end
+
     within('ul.order-item-details li:nth-child(2)') do
       expect(page).to have_content("Quantity: 1")
     end
-      within('ul.order-item-details li:nth-child(3)') do
+
+    within('ul.order-item-details li:nth-child(3)') do
       expect(page).to have_content("Subtotal: $0.19")
     end
   end
