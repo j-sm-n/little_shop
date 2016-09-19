@@ -46,10 +46,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation, :gender)
-  end
-
   def current_user_order?
     order = Order.find(params[:id])
     order.user_id == current_user.id

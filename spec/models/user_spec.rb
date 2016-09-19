@@ -7,6 +7,12 @@ RSpec.describe User, type: :model do
 
       expect(user).to be_valid
       expect(user.username).to include('Joe')
+      expect(user.first_name).to eq('Joe')
+      expect(user.last_name).to eq('Delaware')
+      expect(user.street_address).to include('Kemper Lane')
+      expect(user.city).to eq('Salt Lake City')
+      expect(user.state).to eq('Utah')
+      expect(user.zip_code).to eq('84104')
       expect(user.password).to eq('123foo456')
       expect(user.password_confirmation).to eq('123foo456')
       expect(user.gender).to eq('Other')
