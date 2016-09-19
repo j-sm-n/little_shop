@@ -26,6 +26,6 @@ class OrdersController < ApplicationController
   private
 
   def require_current_user
-    render file: "/public/404" unless current_user_order?
+    render file: "/public/404" unless current_user_order? || current_admin?
   end
 end
