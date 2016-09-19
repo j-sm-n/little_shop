@@ -41,14 +41,14 @@ RSpec.feature "Admin changing order statuses", type: :feature do
 
     click_on "Paid Orders"
 
-    expect(page).to have_link("#1", href: order_path(order_paid_1))
-    expect(page).to have_link("#2", href: order_path(order_paid_2))
+    expect(page).to have_link("##{order_paid_1.id}", href: order_path(order_paid_1))
+    expect(page).to have_link("##{order_paid_2.id}", href: order_path(order_paid_2))
 
     visit admin_dashboard_path
 
     click_on "Completed Orders"
 
-    expect(page).to have_link("#1", href: order_path(order_completed))
+    expect(page).to have_link("##{order_completed.id}", href: order_path(order_completed))
   end
 
   scenario "cancel 'paid' order" do

@@ -13,4 +13,4 @@
 <%= button_to "Completed Orders", '/admin/dashboard/completed', method: :get %>
 <%= button_to "Cancelled Orders", '/admin/dashboard/cancelled', method: :get %>
 
-<%= render partial: "shared/order_table", locals: { orders: @orders } %>
+<%= render partial: "order_table", locals: { orders: @orders } %>
