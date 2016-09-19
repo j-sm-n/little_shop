@@ -18,7 +18,13 @@ RSpec.feature "UserLogouts", type: :feature do
     User.create(username: "jeffjeff",
                 password: "12345",
                 password_confirmation: "12345",
-                gender: "Male")
+                gender: "Male",
+                first_name: "Jeff",
+                last_name: "Duke",
+                street_address: "111 Street Name",
+                city: "City",
+                state: "State",
+                zip_code: "12111")
   end
 
   def user_login

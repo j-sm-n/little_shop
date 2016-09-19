@@ -35,7 +35,13 @@ RSpec.feature "User sees past orders" do
     user_2 = User.create(username: "jeffjeff",
                          password: "12345",
                          password_confirmation: "12345",
-                         gender: "Male")
+                         gender: "Male",
+                         first_name: "Jeff",
+                         last_name: "Duke",
+                         street_address: "111 Street Name",
+                         city: "City",
+                         state: "State",
+                         zip_code: "12111")
 
     order_1 = user.orders.create(status: "pending")
     order_1.items.create(title: "Banana", description: "Wholesome Yellow Goodness", price: 19, image_path: "placeholder")
