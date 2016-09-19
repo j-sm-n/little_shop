@@ -64,7 +64,6 @@ RSpec.feature "User sees past orders" do
     expect(page).to have_content("Order ##{order_1.id}")
     expect(page).to have_content("Banana")
     expect(page).to have_content("Apple")
-
     expect(page).to_not have_content("Tea")
     expect(page).to_not have_content("Soap")
   end
