@@ -22,21 +22,19 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
   end
 
   scenario "admin can see purchaser's full name and address" do
-    pending
     create(:order_with_items)
 
     admin = create(:user, role: 1)
 
     login_user(admin)
     click_link("#1")
-    save_and_open_page
 
-    expect(page).to have_content("Joe Delaware - 1378 Kemper Lane, Salt Lake City, Utah 84104")
+    expect(page).to have_content("Purchaser Name: Joe Delaware")
+    expect(page).to have_content("Address: 4 Kemper Lane, Salt Lake City, Utah - 84104")
   end
 
   scenario "admin can see each order item details" do
-    pending
-    create(:order_with_items)
+    order_items = create(:order_with_items)
 
     admin = create(:user, role: 1)
 
@@ -44,9 +42,13 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
     click_link("#1")
 
     within('ul.order-item-details li:first-child') do
-        expect(page).to have_link("Dead Dove 4")
-        expect(page).to have_content("1")
-        expect(page).to have_content("$0.19")
+      expect(page).to have_link(order_items.items.first.title)
+    end
+    within('ul.order-item-details li:nth-child(2)') do
+      expect(page).to have_content("Quantity: 1")
+    end
+      within('ul.order-item-details li:nth-child(3)') do
+      expect(page).to have_content("Subtotal: $0.19")
     end
   end
 
