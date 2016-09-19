@@ -1,4 +1,12 @@
 <div class="container">
-  <p>Profile Image:</p> <%= image_tag current_user.user_image %><br>
-  <p><%= current_user.gender %></p>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag current_user.user_image %>
+    </div>
+    <div class="col-md-8">
+      <p><%= "#{current_user.first_name} #{current_user.last_name}" %></p><br>
+      <p><%= "#{current_user.street_address}, #{current_user.city}, #{current_user.state} #{current_user.zip_code}" %></p><br>
+      <p><%= current_user.gender %></p>
+    </div>
+  </div>
 </div>
