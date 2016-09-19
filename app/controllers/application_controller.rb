@@ -9,6 +9,19 @@ class ApplicationController < ActionController::Base
                 :update_cart,
                 :logged_in?
 
+  def user_params
+    params.require(:user).permit(:first_name,
+                                 :last_name,
+                                 :username,
+                                 :street_address,
+                                 :city,
+                                 :state,
+                                 :zip_code,
+                                 :password,
+                                 :password_confirmation,
+                                 :gender)
+  end
+
   def set_cart
     @cart = Cart.new(session[:cart])
   end
