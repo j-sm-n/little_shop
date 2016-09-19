@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "items#index"
+  root to: 'homepage#index'
 
   resources :items, only: [:index, :show]
 
