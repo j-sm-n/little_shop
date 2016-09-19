@@ -16,9 +16,6 @@
   <p>
     <%= cents_to_dollar item.price %>
   </p>
-  <div class="cart">
-    <!-- <%= button_to "cart", cart_path, method: :get %> -->
-  </div>
 
   <%= button_to "Add to Cart", cart_path(:item_id => item.id) %>
   </div>
