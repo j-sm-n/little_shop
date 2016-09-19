@@ -1,11 +1,11 @@
 <h1><%= current_user.username.capitalize %>'s Past Orders</h1>
 
-<% @orders.each_with_index do |order, index| %>
+<% @orders.each do |order, index| %>
 
-    <h3><%= link_to "Order ##{ index + 1 }", order %></h3>
+    <h3><%= link_to "Order ##{order.id}", order %></h3>
     <ul>
-      <% order.items.each do |item| %>
-        <li><%= item.title %></li>
+      <% order.distinct_items.each do |item| %>
+        <li><%= item.title %> x <%= order.quantity(item.id) %> </li>
       <% end %>
     </ul>
 

@@ -18,4 +18,8 @@ class Order < ApplicationRecord
   def change_status(status)
     update_attribute(:status, status)
   end
+
+  def distinct_items
+    items.distinct
+  end
 end
