@@ -1,1 +1,17 @@
-<%= render partial: "shared/order_table", locals: { orders: @orders } %>
+<table class="table">
+  <thead>
+    <tr>
+      <td>Order #</td>
+      <td>Status</td>
+    </tr>
+
+  </thead>
+  <tbody>
+    <% @orders.each_with_index do |order| %>
+    <tr>
+      <td> <%= link_to "##{order.id}", order %></td>
+      <td> <%= order.status %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -6,9 +6,9 @@
 <h4>Updated: <%= order_date @order.updated_at if @order.status == "Completed" or @order.status == "Cancelled" %></h4>
 <ul class="order-item-details">
   <% @order.items.distinct.each do |item| %>
-    <li>
+    <h3>
       <%= link_to item.title, item %>
-    </li>
+    </h3>
     <li>
       Quantity: <%= @order.quantity(item.id) %>
     </li>
