@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :logged_in?, only: [:show, :create]
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order(created_at: :desc)
   end
 
   def show
