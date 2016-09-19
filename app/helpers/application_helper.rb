@@ -3,6 +3,10 @@ module ApplicationHelper
     number_to_currency(cents / 100.0)
   end
 
+  def order_date(date)
+    date.strftime("%m/%d/%Y %I:%M%p")
+  end
+
   def all_categories
     Category.all
   end

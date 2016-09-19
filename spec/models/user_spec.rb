@@ -21,5 +21,20 @@ RSpec.describe User, type: :model do
 
       expect(user_2).to be_invalid
     end
+    context "user roles" do
+      it "has default role by default" do
+        user = create(:user)
+
+        expect(user.role).to eq("default")
+      end
+
+      it "can have admin role" do
+        user = create(:user, role: 1)
+
+        expect(user.role).to eq("admin")
+      end
+    end
+
+    it { should have_many :orders }
   end
 end

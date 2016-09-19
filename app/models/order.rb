@@ -14,4 +14,8 @@ class Order < ApplicationRecord
   def total
     items.sum(:price)
   end
+
+  def change_status(status)
+    update_attribute(:status, status)
+  end
 end
