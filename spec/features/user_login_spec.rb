@@ -39,7 +39,7 @@ RSpec.feature "User Login", type: :feature do
 
     expect(current_path).to eq(dashboard_path)
 
-    expect(page).to have_content "Logged in as jeffjeff"
+    expect(page).to have_link "jeffjeff"
 
     expect(page).to have_content "Male"
     expect(page).to have_no_link("Login")

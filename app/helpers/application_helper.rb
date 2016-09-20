@@ -11,6 +11,14 @@ module ApplicationHelper
     Category.all
   end
 
+  def path_based_on_role
+    if current_admin?
+      admin_dashboard_path
+    else
+      dashboard_path
+    end
+  end
+
   def cart_full?
     @cart.contents != {}
   end
