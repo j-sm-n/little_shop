@@ -17,8 +17,9 @@ module ApplicationHelper
     else
       dashboard_path
     end
-
-    def cart_full?
-      @cart.contents != {}
-    end
   end
+
+  def cart_full?
+    @cart.contents != {}
+  end
+end
