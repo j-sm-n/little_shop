@@ -22,4 +22,8 @@ class Order < ApplicationRecord
   def distinct_items
     items.distinct
   end
+
+  def completed_or_cancelled?
+    status == "Completed" || status == "Cancelled"
+  end
 end
