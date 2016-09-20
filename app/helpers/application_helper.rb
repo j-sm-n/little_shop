@@ -10,4 +10,8 @@ module ApplicationHelper
   def all_categories
     Category.all
   end
+
+  def cart_full?
+    @cart.contents != {}
+  end
 end
