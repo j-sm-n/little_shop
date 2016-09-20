@@ -8,14 +8,14 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to path_based_on_role
     else
-      flash.now[:error] = "Username and/or Password is invalid. Try again."
+      flash.now[:danger] = "Username and/or Password is invalid. Try again."
       render :new
     end
   end
 
   def destroy
     session.clear
-    flash[:notice] = "You have logged out"
+    flash[:info] = "You have logged out"
     redirect_to login_path
   end
 end
