@@ -9,7 +9,7 @@
 
   </thead>
   <tbody>
-    <% @orders.each_with_index do |order| %>
+    <% @orders.each do |order| %>
     <tr>
       <td> <%= link_to "##{order.id}", order %></td>
       <td> <%= order.status %> </td>
