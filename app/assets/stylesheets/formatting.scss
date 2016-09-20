@@ -1,3 +1,5 @@
+$dimgray-color: #dimgray;
+
 .username-navbar {
   align-items: center;
   left: 45px;
@@ -5,7 +7,7 @@
 
 .logged-as-navbar {
   align-items: center;
-  color: dimgray;
+  color: $dimgray-color;
   left: 56px;
   top: 15px;
 }
