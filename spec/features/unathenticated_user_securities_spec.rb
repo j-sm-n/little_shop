@@ -19,7 +19,7 @@ RSpec.feature "Unathenticated User Security", type: :feature do
 
     click_on "Add to Cart"
     visit cart_path
-    
+
     click_on "Checkout"
 
     expect(current_path).to eq(login_path)
