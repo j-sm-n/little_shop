@@ -1,15 +1,30 @@
 <%= form_for(@user, url: user_path) do |f| %>
-  <%= f.label :user_image %>
-  <%= f.text_field :user_image %><br>
+<%= f.label :first_name %>
+<%= f.text_field :first_name %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+<%= f.label :last_name %>
+<%= f.text_field :last_name %><br>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br>
+<%= f.label :street_address %>
+<%= f.text_field :street_address%><br>
 
-  <%= f.label :gender %>
-  <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
+<%= f.label :city %>
+<%= f.text_field :city %>
 
-  <%= f.submit "Update Information" %>
+<%= f.label :state %>
+<%= render partial: "shared/state_dropdown" %><br />
+
+<%= f.label :zip_code %>
+<%= f.text_field :zip_code %><br>
+
+<%= f.label :password %>
+<%= f.password_field :password %><br>
+
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation %><br>
+
+<%= f.label :gender %>
+<%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
+
+<%= f.submit "Update Information" %>
 <% end %>
