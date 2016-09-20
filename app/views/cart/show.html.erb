@@ -25,13 +25,16 @@
 <% if cart_full? %>
   <div class="row text-right well">
     <h3>Total: <%= cents_to_dollar @cart.total_price %></h3>
-    <p>
-      <%= link_to "Login", login_path %>
-      or
-      <%= link_to "Create Account", new_user_path %>
-      to Checkout
-    </p>
-    <%= button_to "Checkout", orders_path, class: "btn btn-primary btn-lg" %>
+    <% if current_user %>
+      <%= button_to "Checkout", orders_path, class: "btn btn-primary btn-lg" %>
+    <% else %>
+      <p>
+        <%= link_to "Login", login_path, id: "checkout-login" %>
+        or
+        <%= link_to "Create Account", new_user_path %>
+        to Checkout
+      </p>
+    <% end %>
   </div>
 <% else %>
   <div class="row text-center well">
