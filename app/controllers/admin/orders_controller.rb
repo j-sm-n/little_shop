@@ -2,6 +2,7 @@ module Admin
   class OrdersController < Admin::BaseController
     def index
       @orders = Order.where(status: params[:status].capitalize).order(created_at: :desc)
+      @order_status = params[:status].capitalize
     end
 
     def update
