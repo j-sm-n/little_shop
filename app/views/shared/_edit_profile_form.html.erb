@@ -1,15 +1,21 @@
-<%= form_for(@user, url: user_path) do |f| %>
-  <%= f.label :user_image %>
-  <%= f.text_field :user_image %><br>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br>
-
-  <%= f.label :gender %>
-  <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
-
-  <%= f.submit "Update Information" %>
-<% end %>
+<div class="container-fluid">
+  <%= form_for(@user, url: user_path) do |f| %>
+    <div class="form-group">
+      <%= f.label :user_image %>
+      <%= f.text_field :user_image, class: "form-control", type: "url" %><br>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "form-control" %><br>
+    </div>
+    <div class="form-group">
+      <%= f.label :gender %>
+      <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
+    </div>
+    <%= f.submit "Update Information", class: "btn btn-primary" %>
+  <% end %>
+</div>
