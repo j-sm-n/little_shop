@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    current_user
+    redirect_to path_based_on_role
+  end
+
+  def edit
   end
 end
