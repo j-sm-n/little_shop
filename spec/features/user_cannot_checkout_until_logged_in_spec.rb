@@ -16,7 +16,7 @@ RSpec.feature "User cannot see checkout until logged in" do
 
     visit "/cart"
 
-    expect(page).to_not have_link("Checkout")
+    expect(page).to_not have_button("Checkout")
 
     expect(page).to have_content("Login")
     expect(page).to have_content("Create Account to Checkout")

@@ -10,4 +10,24 @@ module ApplicationHelper
   def all_categories
     Category.all
   end
+
+  def path_based_on_role
+    if current_admin?
+      admin_dashboard_path
+    else
+      dashboard_path
+    end
+  end
+
+  def cart_full?
+    @cart.contents != {}
+  end
+
+  def formatted_address(user)
+    "#{user.street_address}, #{user.city}, #{user.state} #{user.zip_code}"
+  end
+
+  def formatted_name(user)
+    "#{user.first_name} #{user.last_name}"
+  end
 end

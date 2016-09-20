@@ -14,8 +14,13 @@ RSpec.feature "Unathenticated User Security", type: :feature do
   end
 
   scenario "unathenticated user cannot checkout" do
+    create(:item)
+    visit items_path
+
+    click_on "Add to Cart"
     visit cart_path
-    click_on "Checkout"
+
+    click_link "checkout-login"
 
     expect(current_path).to eq(login_path)
   end

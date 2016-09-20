@@ -22,7 +22,7 @@ RSpec.feature "Visiter can create account", type: :feature do
     fill_in "Username", with: "becky_123"
     fill_in "Street address", with: "333 North Mulberry"
     fill_in "City", with: "Fort Collins"
-    fill_in "State", with: "Colorado"
+    select("CO", from: "user[state]")
     fill_in "Zip code", with: "80525"
     fill_in "Password", with: "12345"
     fill_in "Password confirmation", with: "12345"
@@ -30,7 +30,7 @@ RSpec.feature "Visiter can create account", type: :feature do
     click_on "Register"
 
     expect(current_path).to eq("/dashboard")
-    expect(page).to have_content "Logged in as becky_123"
+    expect(page).to have_link "becky_123"
     expect(page).to have_content "Female"
     expect(page).to have_content "Becky Cooper"
     expect(page).to have_content "333 North Mulberry, Fort Collins, Colorado 80525"

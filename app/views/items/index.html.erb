@@ -1,3 +1,7 @@
-<h1>Items</h1>
+<h2>Items</h2>
 
-<%= render partial: "shared/item_container", locals: { items: @items } %>
+<div class="row">
+  <% @items.each do |item| %>
+    <%= render partial: "shared/item_container", locals: { item: item } %>
+  <% end %>
+</div>

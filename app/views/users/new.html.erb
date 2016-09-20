@@ -1,35 +1,75 @@
-<div class="container-fluid text-center well well-lg">
+<div class="container-fluid well well-lg">
   <%= form_for(@user) do |f| %>
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+    <div class="form-group row">
+      <%= f.label :first_name, class: "col-xs-2 col-form-label" %>
+      <div class="col-xs-10">
+        <%= f.text_field :first_name, class: "form-control" %>
+      </div>
+    </div>
 
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %><br>
+    <div class="form-group row">
+      <%= f.label :last_name, class: "col-xs-2 col-form-label" %>
+      <div class="col-xs-10">
+        <%= f.text_field :last_name, class: "form-control" %><br>
+      </div>
+    </div>
 
-    <%= f.label :username %>
-    <%= f.text_field :username %><br>
+    <div class="form-group row">
+      <%= f.label :username, class: "col-xs-2 col-form-label" %>
+        <div class="col-xs-10">
+          <%= f.text_field :username, class: "form-control" %><br>
+        </div>
+    </div>
 
-    <%= f.label :street_address %>
-    <%= f.text_field :street_address%><br>
+    <div class="form-group row">
+      <%= f.label :street_address, class: "col-xs-2 col-form-label" %>
+        <div class="col-xs-10">
+          <%= f.text_field :street_address, class: "form-control" %><br>
+        </div>
+    </div>
 
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+    <div class="form-group row">
+      <%= f.label :city, class: "col-xs-2 col-form-label" %>
+        <div class="col-xs-10">
+          <%= f.text_field :city, class: "form-control" %>
+        </div>
+    </div>
 
-    <%= f.label :state %>
-    <%= f.text_field :state%><br>
+    <div class="form-group row">
+      <%= f.label :state, class: "col-xs-2 col-form-label"  %>
+        <div class="col-xs-10">
+          <%= render partial: "shared/state_dropdown" %><br />
+        </div>
+    </div>
 
-    <%= f.label :zip_code %>
-    <%= f.text_field :zip_code %><br>
+    <div class="form-group row">
+      <%= f.label :zip_code, class: "col-xs-2 col-form-label"  %>
+        <div class="col-xs-10">
+          <%= f.text_field :zip_code, class: "form-control" %><br>
+        </div>
+    </div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %><br>
+    <div class="form-group row">
+      <%= f.label :password, class: "col-xs-2 col-form-label"  %>
+        <div class="col-xs-10">
+          <%= f.password_field :password, class: "form-control" %><br>
+        </div>
+    </div>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %><br>
+    <div class="form-group row">
+      <%= f.label :password_confirmation, class: "col-xs-2 col-form-label"  %>
+        <div class="col-xs-10">
+          <%= f.password_field :password_confirmation, class: "form-control" %><br>
+        </div>
+    </div>
 
-    <%= f.label :gender %>
-    <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
+    <div class="form-group row">
+      <%= f.label :gender, class: "col-xs-2 col-form-label"  %>
+        <div class="col-xs-10">
+          <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
+        </div>
+    </div>
 
-    <%= f.submit "Register" %>
+    <%= f.submit "Register", class: "btn btn-primary btn-lg btn-block" %>
   <% end %>
 </div>

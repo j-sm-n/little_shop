@@ -1,22 +1,14 @@
-<% items.each do |item| %>
-  <div class="<%= item.title %>">
+<div class="container col-md-4">
+  <div class="well">
+    <div class="<%= item.title %> items-display-height">
+      <a href="items/<%= item.id %>">
+        <h3><%= item.title %></h3>
+        <%= image_tag item.image_path, class: "img-responsive" %>
+      </a>
+      <p><%= item.description %></p>
+      <p><%= cents_to_dollar item.price %></p>
 
-  <p>
-    <%= item.title %>
-  </p>
-
-  <p>
-    <%= image_tag item.image_path %>
-  </p>
-
-  <p>
-    <%= item.description %>
-  </p>
-
-  <p>
-    <%= cents_to_dollar item.price %>
-  </p>
-
-  <%= button_to "Add to Cart", cart_path(:item_id => item.id) %>
+      <%= button_to "Add to Cart", cart_path(:item_id => item.id), class: "btn btn-info" %>
+    </div>
   </div>
-<% end %>
+</div>

@@ -1,3 +1,5 @@
+<h2><%= @order_status %> Orders</h2>
+
 <table class="table">
   <thead>
     <tr>
@@ -7,7 +9,7 @@
 
   </thead>
   <tbody>
-    <% @orders.each_with_index do |order| %>
+    <% @orders.each do |order| %>
     <tr>
       <td> <%= link_to "##{order.id}", order %></td>
       <td> <%= order.status %> </td>
