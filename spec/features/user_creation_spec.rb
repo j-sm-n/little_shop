@@ -21,8 +21,7 @@ RSpec.feature "Visiter can create account", type: :feature do
     fill_in "Last name", with: "Cooper"
     fill_in "Username", with: "becky_123"
     fill_in "Street address", with: "333 North Mulberry"
-    fill_in "City", with: "Fort Collins"
-    fill_in "State", with: "Colorado"
+    select("CO", from: "user[state]")
     fill_in "Zip code", with: "80525"
     fill_in "Password", with: "12345"
     fill_in "Password confirmation", with: "12345"
