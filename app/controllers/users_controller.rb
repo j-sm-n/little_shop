@@ -25,6 +25,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    byebug
+    @user = current_user
+    if @user.update(user_params)
+      redirect_to dashboard_path
+    else
+      flash.now[:warning] = "Please make sure fields are updated correctly"
+      render :edit
+    end
   end
 end
