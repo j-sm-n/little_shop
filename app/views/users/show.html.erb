@@ -4,8 +4,8 @@
       <%= image_tag current_user.user_image %>
     </div>
     <div class="col-md-8">
-      <p><%= "#{current_user.first_name} #{current_user.last_name}" %></p><br>
-      <p><%= "#{current_user.street_address}, #{current_user.city}, #{current_user.state} #{current_user.zip_code}" %></p><br>
+      <p><%= formatted_name(current_user) %></p><br>
+      <p><%= formatted_address(current_user) %></p><br>
       <p><%= current_user.gender %></p>
         <%= button_to "Edit Profile", edit_user_path(current_user), method: :get %>
       <h3><%= link_to "Orders", orders_path %></h3>

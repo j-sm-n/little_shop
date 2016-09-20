@@ -6,11 +6,26 @@
 </div>
 
 
-<%= link_to "Update Profile", admin_edit_dashboard_path%>
+<%= link_to "Update Profile", admin_edit_dashboard_path%><br>
 
-<%= button_to "Open Orders", '/admin/dashboard/ordered', method: :get %>
-<%= button_to "Paid Orders", '/admin/dashboard/paid', method: :get %>
-<%= button_to "Completed Orders", '/admin/dashboard/completed', method: :get %>
-<%= button_to "Cancelled Orders", '/admin/dashboard/cancelled', method: :get %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= button_to "Open Orders", '/admin/dashboard/ordered', method: :get, class: "btn btn-info" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= button_to "Paid Orders", '/admin/dashboard/paid', method: :get, class: "btn btn-info" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= button_to "Completed Orders", '/admin/dashboard/completed', method: :get, class: "btn btn-info" %>
+    </div>
+
+    <div class="col-md-3">
+      <%= button_to "Cancelled Orders", '/admin/dashboard/cancelled', method: :get, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>
 
 <%= render partial: "order_table", locals: { orders: @orders } %>

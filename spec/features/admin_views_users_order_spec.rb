@@ -30,7 +30,7 @@ RSpec.feature "Admin Views Users Single Order", type: :feature do
     click_link("#1")
 
     expect(page).to have_content("Purchaser Name: Joe Delaware")
-    expect(page).to have_content("Address: #{order.user.street_address}")
+    expect(page).to have_content("Address: #{order.user.street_address}, Salt Lake City, Utah 84104")
   end
 
   scenario "admin can see each order item details" do
