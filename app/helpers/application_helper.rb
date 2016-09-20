@@ -15,11 +15,11 @@ module ApplicationHelper
     @cart.contents != {}
   end
 
-  def formatted_address
-    "#{@order.user.street_address}, #{@order.user.city}, #{@order.user.state} - #{@order.user.zip_code}"
+  def formatted_address(user)
+    "#{user.street_address}, #{user.city}, #{user.state} #{user.zip_code}"
   end
 
-  def formatted_name
-    "#{@order.user.first_name} #{@order.user.last_name}"
+  def formatted_name(user)
+    "#{user.first_name} #{user.last_name}"
   end
 end
