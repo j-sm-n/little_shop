@@ -16,7 +16,7 @@
     <%= f.text_field :city %>
 
     <%= f.label :state %>
-    <%= f.text_field :state%><br>
+    <%= render partial: "shared/state_dropdown" %><br />
 
     <%= f.label :zip_code %>
     <%= f.text_field :zip_code %><br>
