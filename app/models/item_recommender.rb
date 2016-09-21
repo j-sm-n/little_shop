@@ -14,7 +14,11 @@ class ItemRecommender
     involved_order_ids = user.ordered_items.where(item_id: item.id).pluck(:order_id)
     earliest_order_time = Order.where(id: involved_order_ids).minimum(:updated_at)
     purchases_per_sec = item_purchase_count[item.title]/( time - earliest_order_time )
-    (purchases_per_sec * (60 * 60 * 24)).round(3)
+    (purchases_per_sec * (60 * 60 * 24)).round(3) # convert to orders/day for end user ease
+  end
+
+  def top_item
+    @top_item ||= Item.find(user.ordered_items.find_by(quantity: item_purchase_count.values.max).item_id)
   end
 
   def top_user_items
@@ -23,7 +27,6 @@ class ItemRecommender
   end
 
   def recommended_items
-    top_item = Item.find(user.ordered_items.find_by(quantity: item_purchase_count.values.max).item_id)
     order_ids_with_top_item = OrderedItem.where(item: top_item).where.not(order: user.orders).pluck(:order_id)
     orders_with_top_item = Order.where(id: order_ids_with_top_item)
     Item.find(OrderedItem.where(order: orders_with_top_item).where.not(item: top_item).order(quantity: :desc).pluck(:item_id))
