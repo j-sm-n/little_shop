@@ -12,13 +12,12 @@ RSpec.describe ItemRecommender, type: :model do
 
     order_2 = Order.create(user: user)
 
-
     order_2.ordered_items.create(item: banana, quantity: 6)
     order_2.status = "Completed"
 
     ir = ItemRecommender.new(user)
 
-    expect(ir.item_purchase_count).to eq({ "Banana" => 10 })
+    expect(ir.item_purchase_count).to eq("Banana" => 10)
   end
 
   it "finds purchase frequency of single item" do
@@ -26,14 +25,12 @@ RSpec.describe ItemRecommender, type: :model do
     banana = Item.create(title: "Banana", description: "banana!", price: "21", image_path: "foo.com")
     order_1 = Order.create(user: user)
 
-
     order_1.ordered_items.create(item: banana, quantity: 4)
 
     order_1.status = "Completed"
     order_1.update_attribute(:updated_at, Time.parse("September 11"))
 
     order_2 = Order.create(user: user)
-
 
     order_2.ordered_items.create(item: banana, quantity: 3)
 
@@ -53,7 +50,6 @@ RSpec.describe ItemRecommender, type: :model do
 
     order_1 = Order.create(user: user)
 
-
     order_1.ordered_items.create(item: banana, quantity: 4)
 
     order_1.status = "Completed"
@@ -70,7 +66,6 @@ RSpec.describe ItemRecommender, type: :model do
     order_3.ordered_items.create(item: soap)
     order_3.update_attribute(:updated_at, Time.parse("September 01"))
 
-
     ir = ItemRecommender.new(user)
 
     expect(ir.top_user_items.first).to eq(apple)
@@ -86,7 +81,6 @@ RSpec.describe ItemRecommender, type: :model do
     soap = Item.create(title: "Soap", description: "soap!", price: "100", image_path: "foo.com")
 
     order_1 = Order.create(user: user_1)
-
 
     order_1.ordered_items.create(item: banana, quantity: 4)
 

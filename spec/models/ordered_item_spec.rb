@@ -8,8 +8,4 @@ RSpec.describe OrderedItem, type: :model do
     ordered_item = OrderedItem.new(order_id: 1, item_id: 1, quantity: 21)
     expect(ordered_item.quantity).to eq(21)
   end
-
-  it "should not allow duplicate order_id, item_id pairs" do
-
-  end
 end

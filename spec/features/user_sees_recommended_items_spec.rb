@@ -29,7 +29,7 @@ RSpec.feature "User sees recommended items" do
     visit "/items/#{banana.id}"
 
     expect(current_path).to eq("/items/#{banana.id}")
-    save_and_open_page
+
     within(".recommended_items") do
       expect(page).to have_content("soap")
       expect(page).to have_content("apple")
