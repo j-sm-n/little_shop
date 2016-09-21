@@ -1,31 +1,38 @@
-<h1>Admin Dashboard</h1>
+<div class="container" style="margin-top:50px;margin-bottom:200px;">
+  <div class="container">
 
-<div class="container">
-  <p>Profile Image:</p> <%=image_tag @user.user_image %><br>
-  <p><%= @user.gender %></p>
-</div>
-
-
-<%= link_to "Update Profile", admin_edit_dashboard_path%><br>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <%= button_to "Open Orders", '/admin/dashboard/ordered', method: :get, class: "btn btn-info" %>
+    <div class="page-header">
+      <h1>Admin Dashboard</h1>
     </div>
 
-    <div class="col-md-3">
-      <%= button_to "Paid Orders", '/admin/dashboard/paid', method: :get, class: "btn btn-info" %>
-    </div>
+  <div class="container">
+    <p>Profile Image:</p> <%=image_tag @user.user_image %><br>
+    <p><%= @user.gender %></p>
+  </div>
 
-    <div class="col-md-3">
-      <%= button_to "Completed Orders", '/admin/dashboard/completed', method: :get, class: "btn btn-info" %>
-    </div>
 
-    <div class="col-md-3">
-      <%= button_to "Cancelled Orders", '/admin/dashboard/cancelled', method: :get, class: "btn btn-info" %>
+  <%= button_to "Update Profile", admin_edit_dashboard_path, method: :get, class: "btn btn-success" %><br>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <%= button_to "Open Orders", '/admin/dashboard/ordered', method: :get, class: "btn btn-info" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= button_to "Paid Orders", '/admin/dashboard/paid', method: :get, class: "btn btn-info" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= button_to "Completed Orders", '/admin/dashboard/completed', method: :get, class: "btn btn-info" %>
+      </div>
+
+      <div class="col-md-3">
+        <%= button_to "Cancelled Orders", '/admin/dashboard/cancelled', method: :get, class: "btn btn-info" %>
+      </div>
     </div>
   </div>
-</div>
 
-<%= render partial: "order_table", locals: { orders: @orders } %>
+  <%= render partial: "order_table", locals: { orders: @orders } %>
+</div>
+</div>

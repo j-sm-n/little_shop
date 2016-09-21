@@ -1,25 +1,29 @@
-<% @items.each do |item| %>
-<div class ="row">
-  <div class="col-md-4">
-    <img src="<%= item.image_path %>" alt="Item" class="img-responsive">
-  </div>
+<div class="container" style="margin-top:50px;margin-bottom:100px;">
+  <% @items.each do |item| %>
+  <div class ="row">
+    <div class="col-md-4">
+      <img src="<%= item.image_path %>" alt="Item" class="img-responsive">
+    </div>
 
-  <div class="col-md-8" style="margin-bottom:20px;">
-    <h3><%= item.title %></h3>
-    <p>Description: <%=item.description%></p>
-    <p>Price: <%= cents_to_dollar item.price %></p>
-    <p>Subtotal: <%= cents_to_dollar @cart.item_subtotal(item.id) %></p>
-    <p>
-      <%= form_for :cart, method: :patch do |f| %>
-        <%= f.hidden_field :item_id, value: item.id %>
-        <%= f.label :quantity %>
-        <%= f.number_field :quantity, value: @cart.quantity(item.id), min: 1 %>
-        <%= f.submit "Update", class: 'btn btn-outline-secondary' %>
-      <% end %>
-    </p>
-    <%= button_to "Remove", cart_path(item_id: item.id), method: :delete, class: 'btn btn-danger' %>
+    <div class="col-md-8" style="margin-bottom:20px;">
+      <h3><%= item.title %></h3>
+      <p>Description: <%=item.description%></p>
+      <p>Price: <%= cents_to_dollar item.price %></p>
+      <p>Subtotal: <%= cents_to_dollar @cart.item_subtotal(item.id) %></p>
+      <p>
+        <%= form_for :cart, method: :patch do |f| %>
+          <%= f.hidden_field :item_id, value: item.id %>
+          <%= f.label :quantity %>
+          <%= f.number_field :quantity, value: @cart.quantity(item.id), min: 1 %>
+          <%= f.submit "Update", class: 'btn btn-outline-secondary' %>
+        <% end %>
+      </p>
+      <%= button_to "Remove", cart_path(item_id: item.id), method: :delete, class: 'btn btn-danger' %>
+    </div>
+  </div>
+  <% end %>
+
+  <div class="container" style="margin-top:100px;margin-bottom:100px;">
+    <%= render partial: 'full_cart_display' %>
   </div>
 </div>
-<% end %>
-
-<%= render partial: 'full_cart_display' %>

@@ -1,12 +1,21 @@
-<h1><%= current_user.username.capitalize %>'s Past Orders</h1>
+<div class="container" style="margin-top:50px;margin-bottom:200px;">
+  <ol class="breadcrumb">
+    <li><a href="/dashboard">Dashboard</a></li>
+    <li class="active">All Orders</a></li>
+  </ol>
 
-<% @orders.each do |order, index| %>
+  <div class="page-header">
+    <h1><%= current_user.username.capitalize %>'s Past Orders</h1>
+  </div>
 
-    <h3><%= link_to "Order ##{order.id}", order %></h3>
-    <ul>
-      <% order.distinct_items.each do |item| %>
-        <li><%= item.title %> x <%= order.quantity(item.id) %> </li>
-      <% end %>
-    </ul>
+  <% @orders.each do |order, index| %>
 
-<% end %>
+      <h3><%= link_to "Order ##{order.id}", order %></h3>
+      <ul>
+        <% order.distinct_items.each do |item| %>
+          <li><%= item.title %> x <%= order.quantity(item.id) %> </li>
+        <% end %>
+      </ul>
+
+  <% end %>
+</div>
