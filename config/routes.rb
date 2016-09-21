@@ -12,8 +12,11 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'users#show', as: 'dashboard'
     get 'dashboard/edit', to: 'users#edit', as: 'edit_dashboard'
     patch 'dashboard', to: 'users#update'
-    get 'dashboard/:status', to: 'orders#index', as: 'orders'
     patch 'dashboard/orders', to: 'orders#update', as: 'edit_order_status'
+    get 'dashboard/items', to: 'items#index', as: 'items'
+    get 'dashboard/items/:id/edit', to: 'items#edit', as: 'edit_item'
+    patch 'dashboard/items/:id', to: 'items#update', as: 'update_item'
+    get 'dashboard/:status', to: 'orders#index', as: 'orders'
   end
 
   get '/login', to: 'sessions#new'
