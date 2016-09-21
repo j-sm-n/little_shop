@@ -16,6 +16,8 @@ RSpec.feature "Admin edits item" do
 
     click_on "Edit"
 
+    expect(item.long_description).to_not have_content("This is a very long description")
+
     fill_in "Long description", with: "This is a very long description"
 
     click_on "Update Item"
