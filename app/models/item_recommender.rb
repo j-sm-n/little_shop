@@ -26,7 +26,7 @@ class ItemRecommender
     top_user_items.sort_by { |item| item_frequency(item) }.reverse
   end
 
-  def recommended_items
+  def recommended_items(item = top_item)
     order_ids_with_top_item = OrderedItem.where(item: top_item).where.not(order: user.orders).pluck(:order_id)
     orders_with_top_item = Order.where(id: order_ids_with_top_item)
     Item.find(OrderedItem.where(order: orders_with_top_item).where.not(item: top_item).order(quantity: :desc).pluck(:item_id))
