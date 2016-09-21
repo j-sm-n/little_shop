@@ -20,9 +20,9 @@
       <%= content_tag :div, message.html_safe, class: "container alert alert-#{type}" %>
     <% end %>
 
-    <div class="container" id=yield-container>
-      <%= yield %>
-    </div>
+    <%= yield %>
 
+    <%= render partial: "shared/footer" %>
+    
   </body>
 </html>
