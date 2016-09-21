@@ -6,16 +6,14 @@ RSpec.describe ItemRecommender, type: :model do
     banana = Item.create(title: "Banana", description: "banana!", price: "21", image_path: "foo.com")
     order_1 = Order.create(user: user)
 
-    4.times do
-      order_1.ordered_items.create(item: banana)
-    end
+    order_1.ordered_items.create(item: banana, quantity: 4)
+
     order_1.status = "Completed"
 
     order_2 = Order.create(user: user)
 
-    6.times do
-      order_2.ordered_items.create(item: banana)
-    end
+
+    order_2.ordered_items.create(item: banana, quantity: 6)
     order_2.status = "Completed"
 
     ir = ItemRecommender.new(user)
@@ -28,17 +26,17 @@ RSpec.describe ItemRecommender, type: :model do
     banana = Item.create(title: "Banana", description: "banana!", price: "21", image_path: "foo.com")
     order_1 = Order.create(user: user)
 
-    4.times do
-      order_1.ordered_items.create(item: banana)
-    end
+
+    order_1.ordered_items.create(item: banana, quantity: 4)
+
     order_1.status = "Completed"
     order_1.update_attribute(:updated_at, Time.parse("September 11"))
 
     order_2 = Order.create(user: user)
 
-    3.times do
-      order_2.ordered_items.create(item: banana)
-    end
+
+    order_2.ordered_items.create(item: banana, quantity: 3)
+
     order_2.status = "Completed"
     order_2.update_attribute(:updated_at, Time.parse("September 16"))
 
@@ -55,17 +53,16 @@ RSpec.describe ItemRecommender, type: :model do
 
     order_1 = Order.create(user: user)
 
-    4.times do
-      order_1.ordered_items.create(item: banana)
-    end
+
+    order_1.ordered_items.create(item: banana, quantity: 4)
+
     order_1.status = "Completed"
     order_1.update_attribute(:updated_at, Time.parse("August 11"))
 
     order_2 = Order.create(user: user)
 
-    3.times do
-      order_2.ordered_items.create(item: apple)
-    end
+    order_2.ordered_items.create(item: apple, quantity: 3)
+
     order_2.status = "Completed"
     order_2.update_attribute(:updated_at, Time.parse("September 18"))
 
@@ -90,25 +87,21 @@ RSpec.describe ItemRecommender, type: :model do
 
     order_1 = Order.create(user: user_1)
 
-    4.times do
-      order_1.ordered_items.create(item: banana)
-    end
 
-    2.times do
-      order_1.ordered_items.create(item: soap)
-    end
+    order_1.ordered_items.create(item: banana, quantity: 4)
+
+    order_1.ordered_items.create(item: apple, quantity: 2)
 
     order_2 = Order.create(user: user_2)
-    2.times do
-      order_2.ordered_items.create(item: banana)
-    end
 
-    order_2.ordered_items.create(item: soap)
+    order_2.ordered_items.create(item: banana, quantity: 3)
+    order_2.ordered_items.create(item: soap, quantity: 2)
+    order_2.ordered_items.create(item: apple)
 
     ir_1 = ItemRecommender.new(user_1)
     ir_2 = ItemRecommender.new(user_2)
 
-    # expect(ir_1.recommended_items.first).to eq(apple)
-    expect(ir_2.recommended_items.first).to eq(soap)
+    expect(ir_1.recommended_items.first).to eq(soap)
+    expect(ir_2.recommended_items.first).to eq(apple)
   end
 end
