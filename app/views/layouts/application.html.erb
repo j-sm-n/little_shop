@@ -17,12 +17,14 @@
     <%= render partial: "shared/navbar" %>
 
     <% flash.each do |type, message| %>
-      <%= content_tag :div, message.html_safe, class: "container alert alert-#{type}" %>
+      <%= content_tag :div, message.html_safe, class: "container alert alert-#{type}", style: "margin-top:50px;" %>
     <% end %>
 
-    <%= yield %>
+    <div id="yield-container">
+      <%= yield %>
+    </div>
 
     <%= render partial: "shared/footer" %>
-    
+
   </body>
 </html>

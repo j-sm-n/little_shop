@@ -1,19 +1,24 @@
-<h2><%= @order_status %> Orders</h2>
+<div class="container" style="margin-top:50px;margin-bottom:200px;">
+  <div class="container">
+    <%= link_to "<< Back to Admin Dashboard", admin_dashboard_path %>
+    <h2><%= @order_status %> Orders</h2>
 
-<table class="table">
-  <thead>
-    <tr>
-      <td>Order #</td>
-      <td>Status</td>
-    </tr>
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Order #</td>
+          <td>Status</td>
+        </tr>
 
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-    <tr>
-      <td> <%= link_to "##{order.id}", order %></td>
-      <td> <%= order.status %> </td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+        <tr>
+          <td> <%= link_to "##{order.id}", order %></td>
+          <td> <%= order.status %> </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

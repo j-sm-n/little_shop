@@ -15,7 +15,7 @@ RSpec.feature "" do
 
     expect(current_path).to eq admin_dashboard_path
 
-    click_link "Update Profile"
+    click_button "Update Profile"
 
     expect(current_path).to eq admin_edit_dashboard_path
     expect(page).to have_content("#{admin.username}'s Profile Page")
