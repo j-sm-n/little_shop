@@ -11,7 +11,6 @@ RSpec.feature "Admin edits item" do
     item = create(:item)
 
     visit admin_items_path
-
     click_on "Edit"
 
     fill_in "Title", with: "Psuedo-Bacon"
