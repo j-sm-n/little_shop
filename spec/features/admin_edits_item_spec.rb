@@ -11,17 +11,15 @@ RSpec.feature "Admin edits item" do
     login_user(admin)
     item = create(:item)
 
-
     visit '/admin/dashboard/items'
     expect(current_path).to eq admin_items_path
 
-    save_and_open_page
-    
     click_on "Edit"
 
-    fill_in "Title", with: "Psuedo-Bacon"
-    click_on "Update item"
+    fill_in "Long description", with: "This is a very long description"
 
-    expect(page).to have_content("Psuedo-Bacon")
+    click_on "Update Item"
+
+    expect(page).to have_content("This is a very long description")
   end
 end

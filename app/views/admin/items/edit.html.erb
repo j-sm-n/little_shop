@@ -1,26 +1,26 @@
-<div class="container">
+<h1>Edit Item Information</h1>
 
-  <center>
-    <h1>Edit Item Information</h1>
-  </center>
+<div class="container col-md-4">
+  <div class="well">
 
-<%= form_for(@item) do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br>
+    <%= form_for(@item, url: admin_update_item_path) do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %><br>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %><br>
+    <%= f.label :description %>
+    <%= f.text_field :description %><br>
 
-  <%= f.label :price %>
-  <%= f.text_field :price %><br>
+    <%= f.label :price %>
+    <%= f.text_field :price %><br>
 
-  <%= f.label :image_path %>
-  <%= f.text_field :image_path %><br>
+    <%= f.label :image_path %>
+    <%= f.text_field :image_path %><br>
 
-  <%= f.label :long_description %>
-  <%= f.text_field :long_description %><br>
+    <%= f.label :long_description %>
+    <%= f.text_field :long_description %><br>
 
-  <%= f.submit "Update Item" %>
-<% end %>
+    <%= f.submit "Update Item" %>
+    <% end %>
 
+  </div>
 </div>
