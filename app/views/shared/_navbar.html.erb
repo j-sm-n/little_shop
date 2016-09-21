@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href= "<%= items_path %>">GoodGrocer</a>
+      <a class="navbar-brand" href= "/">GoodGrocer</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -27,8 +27,8 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li class="logged-as-navbar"><%= "Logged as" %></li>
-          <li class="username-navbar"><%= link_to " #{current_user.username} |", path_based_on_role%></li>
+          <li class="logged-as-navbar">Logged in as</li>
+          <li class="username-navbar"><%= link_to "#{current_user.username} |", path_based_on_role%></li>
           <li class="logout-as-navbar"><%= link_to "Logout |", logout_path %></li>
         <% else %>
           <li><%= link_to "Login", login_path %></li>
