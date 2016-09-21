@@ -1,3 +1,7 @@
-<%= @category.name %>
+<h2><%= @category.name %></h2>
 
-<%= render partial: "shared/item_container", locals: { items: @category.items } %>
+<div class="row">
+  <% @category.items.each do |item| %>
+    <%= render partial: "shared/item_container", locals: { item: item } %>
+  <% end %>
+</div>

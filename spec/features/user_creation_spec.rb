@@ -30,7 +30,7 @@ RSpec.feature "Visiter can create account", type: :feature do
     click_on "Register"
 
     expect(current_path).to eq("/dashboard")
-    expect(page).to have_content "Logged in as becky_123"
+    expect(page).to have_link "becky_123"
     expect(page).to have_content "Female"
     expect(page).to have_content "Becky Cooper"
     expect(page).to have_content "333 North Mulberry, Fort Collins, Colorado 80525"

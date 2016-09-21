@@ -1,7 +1,7 @@
 <% @items.each do |item| %>
 <div class ="row">
   <div class="col-md-4">
-    <img src="<%= item.image_path %>" alt="Item" class="img-responsive" style="width:200px;height:150px;margin-top:30px;">
+    <img src="<%= item.image_path %>" alt="Item" class="img-responsive">
   </div>
 
   <div class="col-md-8" style="margin-bottom:20px;">
@@ -14,7 +14,7 @@
         <%= f.hidden_field :item_id, value: item.id %>
         <%= f.label :quantity %>
         <%= f.number_field :quantity, value: @cart.quantity(item.id), min: 1 %>
-        <%= f.submit "Update", class: 'btn btn-outline-primary' %>
+        <%= f.submit "Update", class: 'btn btn-outline-secondary' %>
       <% end %>
     </p>
     <%= button_to "Remove", cart_path(item_id: item.id), method: :delete, class: 'btn btn-danger' %>
@@ -22,23 +22,4 @@
 </div>
 <% end %>
 
-<% if cart_full? %>
-  <div class="row text-right well">
-    <h3>Total: <%= cents_to_dollar @cart.total_price %></h3>
-    <% if current_user %>
-      <%= button_to "Checkout", orders_path, class: "btn btn-primary btn-lg" %>
-    <% else %>
-      <p>
-        <%= link_to "Login", login_path, id: "checkout-login" %>
-        or
-        <%= link_to "Create Account", new_user_path %>
-        to Checkout
-      </p>
-    <% end %>
-  </div>
-<% else %>
-  <div class="row text-center well">
-    <p>Your cart is empty.</p>
-    <p><%= link_to "Start shopping!", items_path %></p>
-  </div>
-<% end %>
+<%= render partial: 'full_cart_display' %>
