@@ -29,8 +29,7 @@ class ItemRecommender
 
   def recommended_items(item = top_item)
     order_ids_with_top_item = OrderedItem.where(item: item).where.not(order: user.orders).pluck(:order_id)
-    orders_with_top_item = Order.where(id: order_ids_with_top_item)
-    items = Item.find(OrderedItem.where(order: orders_with_top_item).where.not(item: top_item).order(quantity: :desc).pluck(:item_id))
+    items = Item.find(OrderedItem.where(order_id: order_ids_with_top_item).where.not(item: top_item).order(quantity: :desc).pluck(:item_id))
     clean_up_items(items, item)
   end
 
