@@ -47,7 +47,7 @@ RSpec.describe ItemRecommender, type: :model do
     expect(ir.item_frequency(banana, Time.parse("September 18"))).to eq(1)
   end
 
-  it "lists user's most frequently purchased item first" do
+  it "lists user's most frequently purchased items by frequency" do
     user = create(:user)
     banana = Item.create(title: "Banana", description: "banana!", price: "21", image_path: "foo.com")
     apple = Item.create(title: "Apple", description: "apple!", price: "24", image_path: "foo.com")
@@ -79,5 +79,36 @@ RSpec.describe ItemRecommender, type: :model do
     expect(ir.top_user_items.first).to eq(apple)
     expect(ir.top_user_items[1]).to eq(banana)
     expect(ir.top_user_items.last).to eq(soap)
+  end
+
+  it "knows items bought by users who bought the same item" do
+    user_1 = create(:user)
+    user_2 = create(:user)
+    banana = Item.create(title: "Banana", description: "banana!", price: "21", image_path: "foo.com")
+    apple = Item.create(title: "Apple", description: "apple!", price: "24", image_path: "foo.com")
+    soap = Item.create(title: "Soap", description: "soap!", price: "100", image_path: "foo.com")
+
+    order_1 = Order.create(user: user_1)
+
+    4.times do
+      order_1.ordered_items.create(item: banana)
+    end
+
+    2.times do
+      order_1.ordered_items.create(item: soap)
+    end
+
+    order_2 = Order.create(user: user_2)
+    2.times do
+      order_2.ordered_items.create(item: banana)
+    end
+
+    order_2.ordered_items.create(item: soap)
+
+    ir_1 = ItemRecommender.new(user_1)
+    ir_2 = ItemRecommender.new(user_2)
+
+    # expect(ir_1.recommended_items.first).to eq(apple)
+    expect(ir_2.recommended_items.first).to eq(soap)
   end
 end

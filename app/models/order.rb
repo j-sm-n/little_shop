@@ -14,4 +14,14 @@ class Order < ApplicationRecord
   def total
     items.sum(:price)
   end
+
+  def quantity_sorted_items
+    # ids = items.pluck(:ids)
+    # byebug
+    foo = items.to_a.sort_by do |item|
+      quantity(item.id)
+    end.reverse
+    # byebug
+    foo
+  end
 end
