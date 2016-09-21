@@ -1,0 +1,26 @@
+<div class="container">
+
+  <center>
+    <h1>Edit Item Information</h1>
+  </center>
+
+<%= form_for(@item) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %><br>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %><br>
+
+  <%= f.label :price %>
+  <%= f.text_field :price %><br>
+
+  <%= f.label :image_path %>
+  <%= f.text_field :image_path %><br>
+
+  <%= f.label :long_description %>
+  <%= f.text_field :long_description %><br>
+
+  <%= f.submit "Update Item" %>
+<% end %>
+
+</div>
