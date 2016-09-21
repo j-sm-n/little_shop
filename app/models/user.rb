@@ -15,4 +15,8 @@ class User < ApplicationRecord
   has_many :items, through: :ordered_items
 
   enum role: %w(default admin)
+
+  def item_recommender
+    @item_recommender ||= ItemRecommender.new(self)
+  end
 end

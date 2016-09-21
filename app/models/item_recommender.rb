@@ -18,7 +18,8 @@ class ItemRecommender
   end
 
   def top_item
-    @top_item ||= Item.find(user.ordered_items.find_by(quantity: item_purchase_count.values.max).item_id)
+    top_item_title = item_purchase_count.key(item_purchase_count.values.max)
+    @top_item ||= Item.find_by(title: top_item_title)
   end
 
   def top_user_items
@@ -26,9 +27,11 @@ class ItemRecommender
     top_user_items.sort_by { |item| item_frequency(item) }.reverse
   end
 
-  def recommended_items(item = top_item)
+  def recommended_items(item = top_item, number = 3)
     order_ids_with_top_item = OrderedItem.where(item: top_item).where.not(order: user.orders).pluck(:order_id)
     orders_with_top_item = Order.where(id: order_ids_with_top_item)
-    Item.find(OrderedItem.where(order: orders_with_top_item).where.not(item: top_item).order(quantity: :desc).pluck(:item_id))
+    items = Item.find(OrderedItem.where(order: orders_with_top_item).where.not(item: top_item).order(quantity: :desc).pluck(:item_id))
+    items.delete(item)
+    items[0..number]
   end
 end
