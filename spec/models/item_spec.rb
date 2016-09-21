@@ -52,6 +52,7 @@ RSpec.describe Item, type: :model do
       expect(item).to be_invalid
     end
 
+    it { should have_many :ordered_items }
     it { should have_many :orders }
   end
 end

@@ -1,17 +1,24 @@
 <h1>Order Details</h1>
+<h4>Purchaser Name: <%= formatted_name(@order.user) %> </h4>
+<h4>Address: <%= formatted_address(@order.user) %> </h4>
+<h4>Order Date: <%= order_date @order.created_at %></h4>
 <h4>Status: <%= @order.status %></h4>
-<h4><%= @order.updated_at if @order.status == "completed" or @order.status == "cancelled" %></h4>
-<ul>
+
+<% if @order.completed_or_cancelled? %>
+  <h4>Updated: <%= order_date @order.updated_at %></h4>
+<% end %>
+
+<ul class="order-item-details">
   <% @order.items.distinct.each do |item| %>
+    <h3>
+      <%= link_to item.title, item %>
+    </h3>
     <li>
-      <%= link_to item.title.capitalize, item %>
-    </li>
-    <p>
       Quantity: <%= @order.quantity(item.id) %>
-    </p>
-    <p>
+    </li>
+    <li>
       Subtotal: <%= cents_to_dollar @order.subtotal(item.id) %>
-    </p>
+    </li>
   <% end %>
   <li>Total: <%= cents_to_dollar @order.total %></li>
 </ul>

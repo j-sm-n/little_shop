@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917171801) do
+ActiveRecord::Schema.define(version: 20160921035149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,9 @@ ActiveRecord::Schema.define(version: 20160917171801) do
   create_table "ordered_items", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "order_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "quantity",   default: 1
     t.index ["item_id"], name: "index_ordered_items_on_item_id", using: :btree
     t.index ["order_id"], name: "index_ordered_items_on_order_id", using: :btree
   end
@@ -49,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160917171801) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status"
+    t.string   "status",     default: "Ordered"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,6 +61,12 @@ ActiveRecord::Schema.define(version: 20160917171801) do
     t.datetime "created_at",                                                             null: false
     t.datetime "updated_at",                                                             null: false
     t.integer  "role",            default: 0
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
   end
 
   add_foreign_key "items", "categories"

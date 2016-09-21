@@ -13,15 +13,25 @@ FactoryGirl.define do
     end
   end
 
-  sequence :username, %w(a b c).cycle do |n|
+  sequence :username, %w(a b c d).cycle do |n|
     "Joe #{n}"
   end
 
+  sequence :street_address, %w(1 2 3 4).cycle do |n|
+    "#{n} Kemper Lane"
+  end
+
   factory :user do
+    first_name "Joe"
+    last_name "Delaware"
     username
     password "123foo456"
     password_confirmation "123foo456"
     gender "Other"
+    street_address
+    city "Salt Lake City"
+    state "Utah"
+    zip_code "84104"
   end
 
   factory :ordered_item do
@@ -30,7 +40,10 @@ FactoryGirl.define do
   end
 
   factory :order do
-    status "paid"
     user
+
+    factory :order_with_items do
+      items { create_list(:item, 3) }
+    end
   end
 end

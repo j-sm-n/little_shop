@@ -4,7 +4,8 @@ class Order < ApplicationRecord
   has_many :items, through: :ordered_items
 
   def quantity(item_id)
-    items.where(id: item_id).count
+    # byebug
+    ordered_items.find_by(item_id: item_id).quantity
   end
 
   def subtotal(item_id)
@@ -12,7 +13,23 @@ class Order < ApplicationRecord
   end
 
   def total
-    items.sum(:price)
+    quantities = ordered_items.pluck(:quantity)
+    prices = items.pluck(:price)
+    prices.zip(quantities).inject(0) do |result, (price, quantity)|
+      result + price * quantity
+    end
+  end
+
+  def change_status(status)
+    update_attribute(:status, status)
+  end
+
+  def distinct_items
+    items.distinct
+  end
+
+  def completed_or_cancelled?
+    status == "Completed" || status == "Cancelled"
   end
 
   def quantity_sorted_items

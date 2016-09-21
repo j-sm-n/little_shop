@@ -16,7 +16,7 @@ RSpec.feature "Users can see category items" do
 
     visit "/grocery"
 
-    expect(page).to have_content("Grocery")
+    expect(page).to have_content("grocery")
     expect(page).to have_content("Banana")
   end
 
@@ -41,7 +41,7 @@ RSpec.feature "Users can see category items" do
 
     visit "/grocery"
 
-    expect(page).to have_content("Grocery")
+    expect(page).to have_content("grocery")
     expect(page).to have_content("Banana")
 
     expect(page).to_not have_content("Black Tea")

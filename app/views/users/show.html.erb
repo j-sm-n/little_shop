@@ -1,4 +1,14 @@
 <div class="container">
-  <p>Profile Image:</p> <%= image_tag current_user.user_image %><br>
-  <p><%= current_user.gender %></p>
+  <div class="row">
+    <div class="col-md-4">
+      <%= image_tag current_user.user_image %>
+    </div>
+    <div class="col-md-8">
+      <p><%= formatted_name(current_user) %></p><br>
+      <p><%= formatted_address(current_user) %></p><br>
+      <p><%= current_user.gender %></p>
+        <%= button_to "Edit Profile", edit_user_path(current_user), method: :get %>
+      <h3><%= link_to "Orders", orders_path %></h3>
+    </div>
+  </div>
 </div>

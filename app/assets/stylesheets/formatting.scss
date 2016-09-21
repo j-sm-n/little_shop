@@ -1,0 +1,18 @@
+$dimgray-color: #dimgray;
+
+.username-navbar {
+  align-items: center;
+  left: 45px;
+}
+
+.logged-as-navbar {
+  align-items: center;
+  color: $dimgray-color;
+  left: 56px;
+  top: 15px;
+}
+
+.logout-as-navbar {
+  align-items: center;
+  left: 20px;
+}

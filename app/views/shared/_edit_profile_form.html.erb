@@ -1,15 +1,57 @@
-<%= form_for(@user, url: user_path) do |f| %>
-  <%= f.label :user_image %>
-  <%= f.text_field :user_image %><br>
+<div class="container-fluid">
+  <%= form_for(@user, url: user_path) do |f| %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
+    <div class="form-group">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: "form-control"%>
+    </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br>
+    <div class="form-group">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: "form-control"%><br>
+    </div>
 
-  <%= f.label :gender %>
-  <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
+    <div class="form-group">
+      <%= f.label :street_address %>
+      <%= f.text_field :street_address, class: "form-control"%><br>
+    </div>
 
-  <%= f.submit "Update Information" %>
-<% end %>
+    <div class="form-group">
+      <%= f.label :city %>
+      <%= f.text_field :city, class: "form-control"%>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :state %>
+      <%= render partial: "shared/state_dropdown", class: "form-control"%><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :zip_code %>
+      <%= f.text_field :zip_code, class: "form-control"%><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :user_image %>
+      <%= f.text_field :user_image, class: "form-control", type: "url" %><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation, class: "form-control" %><br>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :gender %>
+      <%= f.select(:gender, options_for_select([['Female', 'Female'], ['Male', 'Male'], ['Transgender', 'Transgender'], ['Other', 'Other'], ['Prefer Not To Say', 'Prefer Not To Say']], 1)) %><br>
+    </div>
+
+    <%= f.submit "Update Information", class: "btn btn-primary" %>
+
+  <% end %>
+</div>

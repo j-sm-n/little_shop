@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <td>Order #</td>
+      <td>Status</td>
+      <td>Action</td>
+    </tr>
+
+  </thead>
+  <tbody>
+    <% orders.each do |order| %>
+    <tr>
+      <td> <%= link_to "##{order.id}", order %></td>
+      <td> <%= order.status %> </td>
+      <td>
+          <% if order.status =='Ordered' %>
+            <%= link_to "Mark As Paid", admin_edit_order_status_path(status: "Paid", order_id: order.id), method: :patch %> |
+          <% end %>
+
+          <% if order.status =='Paid' %>
+            <%= link_to "Mark As Completed", admin_edit_order_status_path(status: "Completed", order_id: order.id), method: :patch %> |
+          <% end %>
+
+          <% if order.status == 'Paid' || order.status == 'Ordered' %>
+            <%= link_to "Cancel", admin_edit_order_status_path(status: "Cancelled", order_id: order.id), method: :patch  %>
+          <% end %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

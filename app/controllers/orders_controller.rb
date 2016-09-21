@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
   before_action :logged_in?, only: [:show, :create]
 
   def index
-    @orders = current_user.orders
+    @orders = current_user.orders.order(created_at: :desc)
   end
 
   def show
@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   def create
     order = Order.create(user: current_user)
     @cart.contents.each do |item_id, quantity|
-      quantity.times { order.ordered_items.create(item_id: item_id) }
+      order.ordered_items.create(item_id: item_id, quantity: quantity)
     end
 
     @cart.clear
@@ -26,6 +26,6 @@ class OrdersController < ApplicationController
   private
 
   def require_current_user
-    render file: "/public/404" unless current_user_order?
+    render file: "/public/404" unless current_user_order? || current_admin?
   end
 end

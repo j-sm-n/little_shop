@@ -1,0 +1,19 @@
+<h2><%= @order_status %> Orders</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td>Order #</td>
+      <td>Status</td>
+    </tr>
+
+  </thead>
+  <tbody>
+    <% @orders.each do |order| %>
+    <tr>
+      <td> <%= link_to "##{order.id}", order %></td>
+      <td> <%= order.status %> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

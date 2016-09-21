@@ -2,6 +2,7 @@ module Admin
   class UsersController < Admin::BaseController
     def show
       @user = current_user
+      @orders = Order.all.order(created_at: :desc)
     end
 
     def edit

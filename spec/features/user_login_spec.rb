@@ -19,7 +19,13 @@ RSpec.feature "User Login", type: :feature do
     User.create(username: "jeffjeff",
                 password: "12345",
                 password_confirmation: "12345",
-                gender: "Male")
+                gender: "Male",
+                first_name: "Jeff",
+                last_name: "Duke",
+                street_address: "111 Street Name",
+                city: "City",
+                state: "State",
+                zip_code: "12111")
 
     visit root_path
     click_link "Login"
@@ -33,7 +39,7 @@ RSpec.feature "User Login", type: :feature do
 
     expect(current_path).to eq(dashboard_path)
 
-    expect(page).to have_content "Logged in as jeffjeff"
+    expect(page).to have_link "jeffjeff"
 
     expect(page).to have_content "Male"
     expect(page).to have_no_link("Login")
