@@ -53,7 +53,6 @@ RSpec.feature "User/Admin edit profile and are directed to different pages" do
     fill_in "Street address", with: "Cartoon Network street"
 
     click_on "Update Information"
-    save_and_open_page
 
     expect(current_path).to eq "/admin/dashboard"
     expect(page).to have_content("Magilla")
