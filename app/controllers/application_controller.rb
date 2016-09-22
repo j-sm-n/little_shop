@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
   def user_params
     params.require(:user).permit(:first_name,
                                  :last_name,
+                                 :user_image,
                                  :username,
                                  :street_address,
                                  :city,

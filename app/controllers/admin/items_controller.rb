@@ -11,7 +11,7 @@ module Admin
     def update
       item = current_item
       item.update(items_params)
-      redirect_to item_path(item)
+      redirect_to admin_items_path
     end
 
     private

@@ -1,20 +1,26 @@
-<div class="container">
+<div class="container" style="margin-top:50px;margin-bottom:200px;">
+  <div class="container">
 
-  <center>
-    <h1>Admin Items Page</h1>
-  </center>
+    <ol class="breadcrumb">
+      <li><a href="/admin/dashboard">Dashboard</a></li>
+      <li class="active">All Items</a></li>
+    </ol>
 
-  <div>
-    <% @items.each do |item| %>
-    <b>Title:</b> <%= item.title %><br>
-    <b>Description:</b> <%= item.description %><br>
-    <b>Price:</b> <%= item.price %><br>
-    <b>Image Path:</b> <%= item.image_path %><br>
-    <b>Long Description:</b> <%= item.long_description %><br>
-    <%= button_to "Edit Item", admin_edit_item_path(item), method: :get %>
-    <% end %>
+    <div class="page-header">
+      <h1>Edit All Items</h1>
+    </div>
+
+    <div>
+      <% @items.each do |item| %>
+        <div class="container" style="margin-bottom:20px;">
+          <h4><%= item.title %></h4><br>
+          <b>Description:</b> <%= item.description %><br>
+          <b>Price:</b> <%= item.price %><br>
+          <b>Image Path:</b> <%= item.image_path %><br>
+          <b>Long Description:</b> <%= item.long_description %><br>
+          <%= button_to "Edit Item", admin_edit_item_path(item), method: :get, class: "btn btn-primary", style: "margin-top:20px;" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-
-
 </div>
