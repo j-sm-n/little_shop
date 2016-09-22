@@ -11,6 +11,12 @@ class User < ApplicationRecord
   has_secure_password
 
   has_many :orders
+  has_many :ordered_items, through: :orders
+  has_many :items, through: :ordered_items
 
   enum role: %w(default admin)
+
+  def item_recommender
+    @item_recommender ||= ItemRecommender.new(self)
+  end
 end

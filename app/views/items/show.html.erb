@@ -30,3 +30,14 @@
       </div>
     </div>
 </div>
+
+<div class="recommended_items">
+  <h3>Recommended Items</h3>
+  <div class="row">
+    <% if current_user && current_user.item_recommender.recommended_items(@item) %>
+      <% current_user.item_recommender.recommended_items(@item).each do |item| %>
+        <%= render partial: "shared/item_container", locals: { item: item } %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

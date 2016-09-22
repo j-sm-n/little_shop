@@ -13,7 +13,7 @@ class OrdersController < ApplicationController
   def create
     order = Order.create(user: current_user)
     @cart.contents.each do |item_id, quantity|
-      quantity.times { order.ordered_items.create(item_id: item_id) }
+      order.ordered_items.create(item_id: item_id, quantity: quantity)
     end
 
     @cart.clear
