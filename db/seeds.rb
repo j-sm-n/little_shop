@@ -22,21 +22,21 @@ Item.create(title: "Apple",
             long_description: "Crisp, sweet and healthy. We source our apples from the finest farms, you'll taste the difference.")
 
 Item.create(title: "Steak",
-            description: "Delicious grilled, seared, sliced or diced",
+            description: "Delicious grilled, seared or sliced",
             price: "650",
             category_id: grocery.id,
             image_path: "http://www.omahasteaks.com/gifs/os/dd_01_filet.jpg",
             long_description: "We maintain a close relationship with our farmers to ensure quality and sustainability. Enjoy without guilt.")
 
 Item.create(title: "Carrot",
-            description: "These orange tubers are healthy and delicious",
+            description: "Orange, healthy and delicious",
             price: "199",
             category_id: grocery.id,
             image_path: "http://dingo.care2.com/pictures/greenliving/uploads/2016/05/carrots.jpg",
             long_description: "Add them to a soup, fry them, or eat them raw. No matter what you do, you won't be disappointed.")
 
 Item.create(title: "Lettuce",
-            description: "Heads of lettuce fresh from the garden",
+            description: "Fresh from the garden",
             price: "110",
             category_id: grocery.id,
             image_path: "http://www.vegkitchen.com/wp-content/uploads/2011/07/Romaine-lettuce.jpg",
@@ -58,14 +58,14 @@ Item.create(title: "Toothpaste",
             long_description: "Oral health is important to overall wellbeing. Our whitening toothpaste will help your self-esteem and health.")
 
 Item.create(title: "Band-Aids",
-            description: "Clean your wounds and cover them up",
+            description: "Clean and cover wounds",
             price: "299",
             category_id: health.id,
             image_path: "http://www.fluenceportland.com/wp-content/uploads/2012/11/Band-Aid.jpg",
             long_description: "Covering your wounds is important to preventing infection. These adhesive bandages are a cheap way to avoid the ER.")
 
 Item.create(title: "Mouth Wash",
-            description: "Nobody likes bad breath. Get minty breath",
+            description: "Minty breath",
             price: "350",
             category_id: health.id,
             image_path: "https://sites.psu.edu/siowfa15/wp-content/uploads/sites/29639/2015/10/3001.jpg",
@@ -86,7 +86,7 @@ Item.create(title: "Multivitamin",
             long_description: "We all try to eat healthy, but perfect nutrition is hard. This suppliment will cover any vitamins you miss and help your health.")
 
 Item.create(title: "Cough Medicine",
-            description: "Supress your cough and sleep better",
+            description: "Fix your cough and sleep better",
             price: "799",
             category_id: health.id,
             image_path: "http://www.motherjones.com/files/blog_cough_medicine.jpg",
@@ -108,7 +108,7 @@ Item.create(title: "Glass Cleaner",
             long_description: "Clean your glass without worrying about annoying glass streaks. Our patented formula is guaranteed to leave your glass sparkling.")
 
 Item.create(title: "Paper Towels",
-            description: "Clean up your messes with ease. Extra absorbent",
+            description: "Clean up your messes with ease",
             price: "899",
             category_id: cleaning.id,
             image_path: "http://www.southernsavers.com/wp-content/uploads/2013/01/Paper-Towels.jpeg",
@@ -122,14 +122,14 @@ Item.create(title: "Trash Bags",
             long_description: "These trash bags are durable and stretchy. No more will you end up with torn bags leaving trash everywhere.")
 
 Item.create(title: "Laundry Detergent",
-            description: "Environmentally friendly laundry detergent",
+            description: "Environmentally friendly detergent",
             price: "1350",
             category_id: cleaning.id,
             image_path: "http://static3.consumerreportscdn.org/content/dam/cro/news_articles/appliances/CR-BG-Laundry-Detergent-SBS-TidePlus-Coldwater-Clean.jpg",
             long_description: "Sanitation and sustainability aren't mutually exclusive. This laundry detergent leaves your clothes and your mind worry-free.")
 
 Item.create(title: "Air Freshener",
-            description: "Does your house smell? Fix that in a few sprays",
+            description: "Fix smells in a few sprays",
             price: "599",
             category_id: cleaning.id,
             image_path: "https://s3-ap-southeast-1.amazonaws.com/media.redmart.com/newmedia/1600x/i/m/img_6565.jpg",
@@ -137,42 +137,42 @@ Item.create(title: "Air Freshener",
 
 beverages = Category.create(name: "Beverages")
 Item.create(title: "SmartWater",
-            description: "Delicious refreshing water.",
+            description: "Delicious refreshing water",
             price: "110",
             category_id: beverages.id,
             image_path: "http://wdy.h-cdn.co/assets/cm/15/08/54ea7fe1bc68a_-_h-wd0409-smart-water-3.jpg",
             long_description: "Smartwater is vapor distilled, inspired by the way nature purifies water. Water becomes vapor filtering out impurities along the way.")
 
 Item.create(title: "Izze",
-            description: "Pure fruit juice and a splash of sparkling water. ",
+            description: "Fruit juice and sparkling water",
             price: "90",
             category_id: beverages.id,
             image_path: "http://www.izze.com/media-resources/CanFamily.jpg",
             long_description: "The perfect partner to help host a sparkling evening, IZZE Sparkling Juice is the Bright-hearted bubbling beverage that’ll liven up your Friends day Night. Gather some friends, whip up something delicious, and pour on the good times.")
 
 Item.create(title: "Black Tea",
-            description: "Excellent Ceylon black tea.",
+            description: "Excellent Ceylon black tea",
             price: "310",
             category_id: beverages.id,
             image_path: "http://ceylonteaco.blazonco.com/images/products/toctc/CatalogImages_OCT.jpg",
             long_description: "Waking up or throughout the day, tea gets scorned for coffee. Some of us know the coffee people are just missing out. Join in with a delicious cup of tea!")
 
 Item.create(title: "Horizon Organic Milk",
-            description: "Chocolate Milk - 18 x 8 oz.",
+            description: "Chocolate Milk - 18 x 8 oz",
             price: "1799",
             category_id: beverages.id,
             image_path: "https://images-na.ssl-images-amazon.com/images/I/51PYyCpMAJL.jpg",
             long_description: "Horizon Organic's shelf-stable milk boxes are great for lunchboxes, snacks, travel and more, and are a perfect alternative to juice boxes.")
 
 Item.create(title: "Nesquik Chocolate",
-            description: "Nestlé Chocolate 15 x 8 oz.",
+            description: "Nestlé Chocolate 15 x 8 oz",
             price: "980",
             category_id: beverages.id,
             image_path: "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=492054",
             long_description: "Nestlé Nesquik Chocolate Low Fat Milk is made with 100% real milk and has 8g of protein in every 8 fluid ounce serving.")
 
 Item.create(title: "Lipton Green Tea",
-            description: "104 Count of Lipton Green Tea.",
+            description: "104 Count of Lipton Green Tea",
             price: "319",
             category_id: beverages.id,
             image_path: "http://makglobal.com/images/UNILEVER_ALLPRODUCTS_LIPTON/4100000100.jpg",
@@ -186,7 +186,7 @@ Item.create(title: "Kahlua Ground Coffee",
             long_description: "Kahlua Rum and Coffee Liqueur combines the delicious notes of rum, vanilla and caramel, wrapped in roasted coffee flavor from hand-picked Arabica beans.")
 
 Item.create(title: "Zipfizz",
-            description: "All-natural, great tasting energy drink-mix powder.",
+            description: "Great tasting energy drink-mix",
             price: "1399",
             category_id: beverages.id,
             image_path: "http://richmedia.channeladvisor.com/ImageDelivery/imageService?profileId=52000717&id=884535&recipeId=243",
@@ -201,14 +201,14 @@ Item.create(title: "Bai",
 
 bath_and_body = Category.create(name: "Bath and Body")
 Item.create(title: "Aveeno",
-            description: "oil-free, hypoallergenic, noncomedogenic.",
+            description: "Oil-free, hypoallergenic",
             price: "183",
             category_id: bath_and_body.id,
             image_path: "https://resources.shopstyle.com/sim/b1/a6/b1a650054646fcdb4d4263f22fa05742/nexxus-therappe-shampoo-33-8-oz-2-pk.jpg",
             long_description: "Daily Moisturizer: A unique formula with an exclusive Total Soy Complex to help naturally even out skin tone and smooth texture. It also contains salicylic acid to help clear up and prevent blemishes..")
 
 Item.create(title: "Dove",
-            description: "Nutritive Solutions with pro-moisture complex",
+            description: "Moisturizing shampoo",
             price: "739",
             category_id: bath_and_body.id,
             image_path: "http://s7d2.scene7.com/is/image/samsclub/0007940052620_A?wid=1500&hei=1500&fmt=jpg&qlt=80",
@@ -222,14 +222,14 @@ Item.create(title: "Gillette",
             long_description: "Forget your old disposable razor. Experience a comfortable and precise 3-blade shave in a disposable with Gillette CustomPlus 3.")
 
 Item.create(title: "Head & Shoulders",
-            description: "40 oz - Dandruff Shampoo Plus Conditioner",
+            description: "Shampoo Plus Conditioner",
             price: "1199",
             category_id: bath_and_body.id,
             image_path: "http://news.pg.com/sites/pg.newshq.businesswire.com/files/image/image/Head__AND__Shoulders_Anti-Dandruff_Shampoo.jpg",
             long_description: "Healthy hair starts from a healthy scalp. The Head & Shoulders Dandruff Shampoo Plus Conditioner relieves scalp itch, dryness, irritation, and helps prevent flakes associated with dandruff.")
 
 Item.create(title: "Garnier Fructis",
-            description: "For frizzy, dry and unmanageable hair",
+            description: "For frizzy and unmanageable hair",
             price: "799",
             category_id: bath_and_body.id,
             image_path: "http://www.garnierusa.com/~/media/Images/Garnier/Home/Products/Hair/HairCare/Pure-Clean/Pure-Clean-Shampoo-13oz/P0213_packshot.png?h=400&thn=0&w=307",
@@ -257,7 +257,7 @@ Item.create(title: "Men Degree",
             long_description: "A men's antiperspirant that offers 24-hour dry protection with an energizing burst of crisp, green arctic freshness.")
 
 Item.create(title: "Nexxus",
-            description: "Enriched with a Caviar Complex and 100% pure.",
+            description: "Enriched and 100% pure.",
             price: "1799",
             category_id: bath_and_body.id,
             image_path: "https://malibubeautyjm.files.wordpress.com/2011/05/nexxus1.jpg",
