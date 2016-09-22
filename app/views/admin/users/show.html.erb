@@ -11,6 +11,10 @@
 
   <div class="container">
     <p>Profile Image:</p> <%=image_tag @user.user_image, class: "img-thumbnail", style: "margin-bottom:20px;" %><br>
+    <p><%= formatted_name(@user) %></p><br>
+
+    <p><%= formatted_address(@user) %></p><br>
+
     <p><%= @user.gender %></p>
   </div>
 
