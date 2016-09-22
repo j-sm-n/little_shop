@@ -4,7 +4,6 @@ class Order < ApplicationRecord
   has_many :items, through: :ordered_items
 
   def quantity(item_id)
-    # byebug
     ordered_items.find_by(item_id: item_id).quantity
   end
 
@@ -30,15 +29,5 @@ class Order < ApplicationRecord
 
   def completed_or_cancelled?
     status == "Completed" || status == "Cancelled"
-  end
-
-  def quantity_sorted_items
-    # ids = items.pluck(:ids)
-    # byebug
-    foo = items.to_a.sort_by do |item|
-      quantity(item.id)
-    end.reverse
-    # byebug
-    foo
   end
 end
