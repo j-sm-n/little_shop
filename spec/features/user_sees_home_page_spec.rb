@@ -5,7 +5,7 @@ RSpec.feature "User can see home page" do
 
     visit "/"
 
-    expect(page).to have_content("HOME PAGE")
+    expect(page).to have_link("Start shopping now")
     expect(page).to have_content("Login")
     expect(page).to have_content("Shop")
     expect(page).to have_content("GoodGrocer")

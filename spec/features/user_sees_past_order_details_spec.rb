@@ -19,9 +19,12 @@ RSpec.feature "User sees past order" do
     order.update_attribute(:status, "completed")
     user = order.user
 
-    item = order.items.create(title: "Banana", description: "Wholesome Yellow Goodness", price: 19, image_path: "placeholder")
-    order.items.create(title: "Apple", description: "Wholesome Red Goodness", price: 21, image_path: "placeholder")
-    order.ordered_items.create(item_id: item.id)
+    item_1 = Item.create(title: "Banana", description: "Wholesome Yellow Goodness", price: 19, image_path: "placeholder")
+    item_2 = Item.create(title: "Apple", description: "Wholesome Red Goodness", price: 21, image_path: "placeholder")
+
+    order.ordered_items.create(item_id: item_1.id, quantity: 2)
+    order.ordered_items.create(item_id: item_2.id)
+    # byebug
 
     visit root_path
     click_link "Login"
@@ -80,9 +83,9 @@ RSpec.feature "User sees past order" do
     click_on "login-button"
 
     visit "/orders"
-    expect(page).to have_link("Order #1")
+    expect(page).to have_link("Order ##{order.id}")
 
-    click_link("Order #1")
+    click_link("Order ##{order.id}")
 
     expect(page).to_not have_content(order.updated_at)
   end

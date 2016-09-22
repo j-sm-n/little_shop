@@ -1,21 +1,51 @@
-<div class="row">
-  <div class="col col-md-4">
-      <img src="<%= @item.image_path %>" class="img-responsive">
+<div class="container" style="margin-top:50px;margin-bottom:100px;">
+  <ol class="breadcrumb">
+    <li><a href="/items">All Items</a></li>
+    <li class="active"><%= @item.title %></a></li>
+  </ol>
+
+  <div class="page-header">
+    <h1><%= @item.title %></h1>
   </div>
 
+    <div class="row">
+      <div class="col col-md-4">
+          <img src="<%= @item.image_path %>" class="img-responsive">
+      </div>
 
-  <div class="col col-md-8">
-    <div class="thumbnail">
-      <div class="container-fluid">
-        <h4>Price: <%= cents_to_dollar @item.price %></h4>
-        <h4>Description: <%=  @item.description %></h4>
-        <p><%= @item.long_description %></p>
-        <% unless @item.retired %>
-          <%= button_to "Add to Cart", cart_path(:item_id => @item.id), class: "btn btn-primary" %>
-        <% else %>
-          <h3>Item Retired</h3>
-        <% end %>
+
+      <div class="col col-md-8">
+        <div class="thumbnail">
+          <div class="container-fluid">
+            <h4>Price: <%= cents_to_dollar @item.price %></h4>
+            <h4>Description: <%=  @item.description %></h4>
+            <p><%= @item.long_description %></p>
+            <% unless @item.retired %>
+              <%= button_to "Add to Cart", cart_path(:item_id => @item.id), class: "btn btn-primary" %>
+            <% else %>
+              <h3>Item Retired</h3>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
+</div>
+
+<div class="recommended_items text-center">
+  <h3 class=""><u>Recommended Items</u></h3>
+  <div class="row">
+    <% if can_recommend_items(@item) %>
+      <% current_user.item_recommender.recommended_items(@item).each do |item| %>
+        <%= render partial: "shared/item_container", locals: { item: item } %>
+      <% end %>
+    <% elsif !current_user %>
+      <p>
+        We base our recommendations on your orders, please login for recommendations
+      </p>
+    <% elsif no_recommended_items(@item) %>
+      <p>
+        It doesn't look like anyone has ordered this, so we don't know what to recommend.
+      </p>
+    <% end %>
   </div>
 </div>

@@ -32,9 +32,7 @@ RSpec.describe Order, type: :model do
                          price: 19,
                          image_path: "placeholder-path")
 
-    3.times do
-      order.ordered_items.create(item: banana)
-    end
+    order.ordered_items.create(item: banana, quantity: 3)
 
     expect(order.quantity(banana.id)).to eq(3)
   end
@@ -46,9 +44,7 @@ RSpec.describe Order, type: :model do
                          price: 19,
                          image_path: "placeholder-path")
 
-    3.times do
-      order.ordered_items.create(item: banana)
-    end
+    order.ordered_items.create(item: banana, quantity: 3)
 
     expect(order.subtotal(banana.id)).to eq(3 * banana.price)
   end

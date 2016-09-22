@@ -5,6 +5,7 @@ AllCops:
     - 'db/**/**'
     - 'bin/**/**'
     - 'config/**/**'
+    - 'app/assets/stylesheets/base/globals.*'
 
 Style/AccessModifierIndentation:
   Description: Check indentation of private/protected visibility modifiers.
