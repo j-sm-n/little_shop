@@ -54,7 +54,7 @@ RSpec.feature "User/Admin edit profile and are directed to different pages" do
 
     click_on "Update Information"
 
-    expect(current_path).to eq "/dashboard"
+    expect(current_path).to eq "/admin/dashboard"
     expect(page).to have_content("Magilla")
     expect(page).to have_content("Gorilla")
     expect(page).to have_content("Cartoon Network street")
