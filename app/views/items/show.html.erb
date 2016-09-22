@@ -31,13 +31,21 @@
     </div>
 </div>
 
-<div class="recommended_items">
-  <h3>Recommended Items</h3>
+<div class="recommended_items text-center">
+  <h3 class=""><u>Recommended Items</u></h3>
   <div class="row">
-    <% if current_user && current_user.item_recommender.recommended_items(@item) %>
+    <% if can_recommend_items(@item) %>
       <% current_user.item_recommender.recommended_items(@item).each do |item| %>
         <%= render partial: "shared/item_container", locals: { item: item } %>
       <% end %>
+    <% elsif !current_user %>
+      <p>
+        We base our recommendations on your orders, please login for recommendations
+      </p>
+    <% elsif no_recommended_items(@item) %>
+      <p>
+        It doesn't look like anyone has ordered this, so we don't know what to recommend.
+      </p>
     <% end %>
   </div>
 </div>

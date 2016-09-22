@@ -30,4 +30,12 @@ module ApplicationHelper
   def formatted_name(user)
     "#{user.first_name} #{user.last_name}"
   end
+
+  def can_recommend_items(item)
+    current_user && current_user.item_recommender.recommended_items(item)
+  end
+
+  def no_recommended_items(item)
+    !current_user.item_recommender.recommended_items(item)
+  end
 end
