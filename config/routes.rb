@@ -1,11 +1,23 @@
 Rails.application.routes.draw do
   root to: 'homepage#index'
 
-  resources :items, only: [:index, :show]
+  # resources :items, only: [:index, :show]
 
-  resources :orders, only: [:index, :show, :create]
+  get 'items', to: 'items#index'
+  get 'items/:id', to: 'items#show', as: 'item'
 
-  resources :users, only: [:new, :create, :edit, :update]
+  # resources :orders, only: [:create]
+
+  get 'orders', to: 'orders#index'
+  post 'orders', to: 'orders#create'
+  get 'orders/:id', to: 'orders#show', as: 'order'
+
+  # resources :users, only: [:new, :create, :edit, :update]
+  post 'users', to: 'users#create'
+  get 'users/new', to: 'users#new', as: 'new_user'
+  get 'users/:id/edit', to: 'users#edit', as: "edit_user"
+  patch 'users/:id', to: 'users#update', as: "user"
+
   get '/dashboard', to: 'users#show'
 
   namespace :admin do
